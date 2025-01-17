@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cootgdi51c8hy"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_2amhp"]
+[ext_resource type="Texture2D" uid="uid://dgiq4pt0ku0sn" path="res://Sprites/angry-bullet-1189835545.jpg" id="2_a4qfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16vnq"]
+size = Vector2(60, 60)
+
+[node name="Player Wrapper" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("1_2amhp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_16vnq")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+rotation = 1.5708
+scale = Vector2(0.057, 0.057)
+texture = ExtResource("2_a4qfx")

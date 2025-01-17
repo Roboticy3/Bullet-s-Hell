@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmqol3866ftwi"]
+
+[ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/player_wrapper.tscn" id="1_8wqq4"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Player Wrapper" parent="." instance=ExtResource("1_8wqq4")]
