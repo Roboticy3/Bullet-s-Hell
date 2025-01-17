@@ -1,0 +1,72 @@
+extends Object
+class_name BulletState
+
+#state wrapper for the player
+
+###INPUT HANDLING
+#update_movement_axis takes an input axis from whatever manages the Inputs and
+#applies it to the state, updating a record of the movement axis and velocity
+
+var movement_axis := Vector2.ZERO
+
+#last_movement_axis is good for quickly detecting changes in direction before
+#they are necessarily applied to the player
+var last_movement_axis := Vector2.ZERO
+
+func update_movement_axis(to:Vector2):
+	last_movement_axis = movement_axis
+	movement_axis = to
+
+###VELOCITY HANDLING
+#update_velocity applies changes in direction to velocity, over time, and is
+#meant to be called every physics step
+
+#a record of the player's velocity
+#this isn't strictly the player's actual velocity, but it's meant to be passed
+#to a character controller on each physics step. If the player slides along a 
+#wall or hits something, the "real" velocity won't match.
+var velocity := Vector2.ZERO
+
+#a record of the player's speed
+#used to help compute velocity, which should approach a magnitude equivalent
+#to this value
+var speed := 0.0
+
+func update_velocity(to:Vector2, steer:float):
+	if (to.is_zero_approx()): return false
+	var target_velocity := to.normalized() * speed
+	var steering_vector := target_velocity - velocity
+	velocity += steering_vector * steer
+
+func update_speed(delta:float):
+	speed += delta
+	speed = max(speed, 0.0)
+
+### DISPLAY
+#code copied from another project
+#the nice thing about what I affectionately refer to as the "hood state pattern"
+#is that by implementing Godot's _to_string() function, you get a pretty quick
+#and easy debug display, that's also easy to turn off for production\
+
+#the contents of _to_string() are meant to be passed to a RichTextLabel Node,
+#so the color tags get interpreted and displayed correctly
+
+func draw_flag(x:bool) -> String:
+	return "[color=" + ("green" if x else "red") + "]" + str(x) + "[/color]"
+
+func draw_float(x:float) -> String:
+	var color := "yellow"
+	var d := signf(x)
+	if (d == 1):
+		color = "green"
+	elif (d == -1):
+		color = "red"
+	return "[color=" + color + "]" + str(x) + "[/color]"
+
+func _to_string():
+	return \
+	"PHYSICAL:\n" + \
+		"\t velocity: (" + draw_float(velocity.x) + ", " + draw_float(velocity.y) + ")\n" + \
+		"\t speed: " + draw_float(speed) + "\n" + \
+	"INPUT BASED:\n" + \
+		"\t movement axis: (" + draw_float(movement_axis.x) + ", " + draw_float(movement_axis.y) + ")\n"
