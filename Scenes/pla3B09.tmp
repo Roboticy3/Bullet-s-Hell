@@ -13,9 +13,6 @@ size = Vector2(60, 60)
 
 [node name="Player Wrapper" type="Node2D"]
 
-[node name="OpenAirProperties" type="Area2D" parent="."]
-script = ExtResource("7_fae5t")
-
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("1_2amhp")
 
@@ -27,23 +24,23 @@ rotation = 1.5708
 scale = Vector2(0.057, 0.057)
 texture = ExtResource("2_a4qfx")
 
-[node name="DebugUI" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="BulletStateDebugger" type="Control" parent="DebugUI"]
+[node name="BulletStateDebugger" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_7duks")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/BulletStateDebugger"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/BulletStateDebugger"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 fit_content = true
 autowrap_mode = 0
 
-[node name="Control" type="Control" parent="DebugUI"]
+[node name="Control" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -57,7 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_4l6bx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DebugUI/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -67,7 +64,7 @@ offset_top = -12.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DebugUI/Control/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
 fit_content = true
@@ -75,7 +72,7 @@ scroll_following = true
 autowrap_mode = 2
 script = ExtResource("4_mwsky")
 
-[node name="TextEdit" type="TextEdit" parent="DebugUI/Control/VBoxContainer"]
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "Enter Command"
@@ -83,6 +80,9 @@ scroll_fit_content_height = true
 caret_blink = true
 script = ExtResource("5_vpgxg")
 
+[node name="OpenAirProperties" type="Area2D" parent="."]
+script = ExtResource("7_fae5t")
+
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
-[connection signal="send" from="DebugUI/Control/VBoxContainer/TextEdit" to="DebugUI/Control/VBoxContainer/RichTextLabel" method="give_command"]
+[connection signal="send" from="CanvasLayer/Control/VBoxContainer/TextEdit" to="CanvasLayer/Control/VBoxContainer/RichTextLabel" method="give_command"]

@@ -5,7 +5,7 @@ extends Node
 #this script converts the player's state to a string and shows it
 #in a RichTextLabel
 
-@export_node_path var player_path := NodePath("../../CharacterBody2D")
+@export_node_path var player_path := NodePath("../../Area2D")
 @onready var player = get_node_or_null(player_path)
 
 @export_node_path var label_path := NodePath("RichTextLabel")

@@ -7,7 +7,7 @@ extends RichTextLabel
 #reference to the player so their state can be manipulated
 #it's good practice to ask `if(player is Bullet)` before working with it
 @export_node_path var player_path := \
-	NodePath("../../../../CharacterBody2D")
+	NodePath("../../../../Area2D")
 @onready var player = get_node_or_null(player_path)
 
 #define commands here by mapping commmand names to functions

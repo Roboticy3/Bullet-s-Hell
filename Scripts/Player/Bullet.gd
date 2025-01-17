@@ -1,15 +1,17 @@
-extends CharacterBody2D
+extends Area2D
 
 #this key lets other scripts reference behavior of this script, like it's
 #state. Godot's registration for classes is iffy, so I try not to
 #use this feature too much
 class_name Bullet
 
-#initial speed in pixels per second
-var INITIAL_SPEED := 1000.0
+@export_node_path("Obstacle") var open_air_properties_path := \
+	NodePath("../OpenAirProperties")
+@onready var open_air_properties:Obstacle = get_node_or_null(
+	open_air_properties_path
+)
 
-#typical speed loss in pixels per second squared
-var SPEED_LOSS := 10.0
+var INITIAL_SPEED := 1000.0
 
 #speed at which the player will start to die, not yet implemented
 var CRITICAL_SPEED := 100.0
@@ -30,13 +32,23 @@ func _process(delta):
 	))
 
 func _physics_process(delta: float):
-	state.update_speed(-SPEED_LOSS * delta)
+	
+	state.update_drag(open_air_properties, get_overlapping_areas())
+	state.update_speed(delta)
 	state.update_velocity(
 		state.movement_axis.normalized(), 
 		STEERING_FACTOR * delta
 	)
 	
-	velocity = state.velocity
+	position += state.velocity * delta
 	rotation = state.velocity.angle()
-	
-	move_and_slide()
+
+#while BulletState handles the drag while inside of obstacles,
+#its more convenient to handle the actual entering and exiting here
+func _on_area_entered(area: Area2D) -> void:
+	if (area is Obstacle):
+		state.speed -= area.entry_penalty
+
+func _on_area_exited(area: Area2D) -> void:
+	if (area is Obstacle):
+		state.speed -= area.exit_penalty
