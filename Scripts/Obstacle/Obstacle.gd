@@ -1,4 +1,8 @@
 extends Area2D
 class_name Obstacle
 
-@export var params := ObstacleParams.new()
+###Give ObstacleParameters to an Area2D, thus making it an obstacle
+#these params are read by the player when they enter the area, applying relevant
+#effects
+
+@export var params:ObstacleParams

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmqol3866ftwi"]
+[gd_scene load_steps=10 format=3 uid="uid://dmqol3866ftwi"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8wqq4"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Obstacle.gd" id="2_w3ber"]
 [ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="3_12h0o"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Polygon2DObstacleAdder.gd" id="4_6tepr"]
 [ext_resource type="Material" uid="uid://bmywlrdde1jtg" path="res://Materials/Wood.tres" id="4_362lh"]
+[ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="5_xqx01"]
 [ext_resource type="PackedScene" uid="uid://cannbihmsqios" path="res://Scenes/Obstacle/damage_viewport_container.tscn" id="6_pqfav"]
 [ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="7_eicfu"]
 
@@ -26,8 +27,11 @@ shape = SubResource("RectangleShape2D_yknox")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 material = ExtResource("4_362lh")
-position = Vector2(85, -44)
-polygon = PackedVector2Array(769, 432, 718, 471, 697, 552, 558, 577, 545, 625, 579, 638, 630, 612, 724, 618, 835, 623, 936, 506, 937, 435, 964, 368, 994, 296, 945, 237, 945, 237, 875, 210, 771, 215, 741, 278, 801, 356, 861, 322, 872, 366, 820, 404)
+position = Vector2(762, 275)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("5_xqx01")
+polygon = PackedVector2Array(9.01261, 34.8942, -8.26905, 19.5971, 4.38211, 2.39812, 45.7258, 2.64618, 74.4183, 19.349, 67.0591, 52.672, 47.6486, 64.8072, 19.2836, 64.4077, -4.68675, 61.6111, -14.5412, 48.6937, 4.36873, 47.0957, 19.1505, 56.018, 40.4575, 53.4878, 55.2392, 44.2992, 54.4402, 23.7912, 38.4599, 11.6728, 17.5524, 13.2708)
+uv = PackedVector2Array(9.01261, 34.8942, -8.26905, 19.5971, 4.38211, 2.39812, 45.7258, 2.64618, 74.4183, 19.349, 67.0591, 52.672, 47.6486, 64.8072, 19.2836, 64.4077, -4.68675, 61.6111, -14.5412, 48.6937, 4.36873, 47.0957, 19.1505, 56.018, 40.4575, 53.4878, 55.2392, 44.2992, 54.4402, 23.7912, 38.4599, 11.6728, 17.5524, 13.2708)
 script = ExtResource("4_6tepr")
 params = ExtResource("3_12h0o")
 

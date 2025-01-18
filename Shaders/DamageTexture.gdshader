@@ -23,6 +23,7 @@ uniform float influence: hint_range(0.f, 1.f) = 1.f;
 
 void fragment() {
 	vec2 transformed_uv = UV * scale + offset;
+	transformed_uv = mod(transformed_uv, vec2(1.f));
 	
 	//define weights for how prevalend the undamaged and damaged textures should be
 	float weightUndamaged = texture(damageMask, SCREEN_UV)[channel] * influence + 1.f * (1.f - influence);
@@ -34,7 +35,7 @@ void fragment() {
 	
 	//as long as the weights always add to about 1, the resulting COLOR will 
 	//be a nice blend depending on the damageMask
-	COLOR = sampleUndamaged + sampleUndamaged;
+	COLOR = sampleUndamaged + sampleDamaged;
 }
 
 //void light() {

@@ -44,6 +44,7 @@ func _physics_process(delta: float):
 #its more convenient to handle the actual entering and exiting here
 func _on_area_entered(area: Area2D) -> void:
 	if (area is Obstacle):
+		print("entered ", area)
 		state.speed -= area.params.entry_penalty
 
 func _on_area_exited(area: Area2D) -> void:

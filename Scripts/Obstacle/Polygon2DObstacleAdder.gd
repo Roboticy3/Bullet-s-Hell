@@ -13,17 +13,27 @@ var obstacle:Obstacle:
 var collision_polygon:CollisionPolygon2D:
 	get: return collision_polygon
 	
-@export var params := ObstacleParams.new()
+@export var params:ObstacleParams
 
+#upate the shape of this Polygon2D
 func _set_polygon(new_polygon:PackedVector2Array):
+	#clear the existing obstacle underneath if necessary
 	if (obstacle != null): remove_child(obstacle)
 	
+	#create a fresh obstacle and pass the correct parameters so 
+	#it behaves as expected
 	obstacle = Obstacle.new()
+	obstacle.params = params
+	
+	#create a collision shape for the obstacle based on the new polygon
 	collision_polygon = CollisionPolygon2D.new()
 	collision_polygon.polygon = new_polygon
+	
+	#add the collision shape to the obstacle and add it to the scene tree
 	obstacle.add_child(collision_polygon)
 	add_child(obstacle)
 	
+	#finally set the new polygon
 	polygon = new_polygon
 
 func _ready():
