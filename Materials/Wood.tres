@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bmywlrdde1jtg"]
+
+[ext_resource type="Shader" path="res://Shaders/DamageTexture.gdshader" id="1_yqg2u"]
+
+[resource]
+shader = ExtResource("1_yqg2u")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/channel = 3
+shader_parameter/influence = 1.0

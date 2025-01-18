@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/test.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Accessor="*res://Scripts/Accessor.gd"
+
 [input]
 
 debug_toggle={

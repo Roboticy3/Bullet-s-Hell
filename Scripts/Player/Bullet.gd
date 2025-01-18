@@ -5,11 +5,7 @@ extends Area2D
 #use this feature too much
 class_name Bullet
 
-@export_node_path("Obstacle") var open_air_properties_path := \
-	NodePath("../OpenAirProperties")
-@onready var open_air_properties:Obstacle = get_node_or_null(
-	open_air_properties_path
-)
+@export var open_air_properties := ObstacleParams.new()
 
 var INITIAL_SPEED := 1000.0
 
@@ -23,6 +19,7 @@ var STEERING_FACTOR := 5.0
 var state := BulletState.new()
 
 func _ready():
+	Accessor.player = self
 	state.speed = INITIAL_SPEED
 
 func _process(delta):
@@ -47,8 +44,8 @@ func _physics_process(delta: float):
 #its more convenient to handle the actual entering and exiting here
 func _on_area_entered(area: Area2D) -> void:
 	if (area is Obstacle):
-		state.speed -= area.entry_penalty
+		state.speed -= area.params.entry_penalty
 
 func _on_area_exited(area: Area2D) -> void:
 	if (area is Obstacle):
-		state.speed -= area.exit_penalty
+		state.speed -= area.params.exit_penalty

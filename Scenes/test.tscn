@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmqol3866ftwi"]
+[gd_scene load_steps=9 format=3 uid="uid://dmqol3866ftwi"]
 
-[ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/player_wrapper.tscn" id="1_8wqq4"]
+[ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8wqq4"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Obstacle.gd" id="2_w3ber"]
+[ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="3_12h0o"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/Polygon2DObstacleAdder.gd" id="4_6tepr"]
+[ext_resource type="Material" uid="uid://bmywlrdde1jtg" path="res://Materials/Wood.tres" id="4_362lh"]
+[ext_resource type="PackedScene" uid="uid://cannbihmsqios" path="res://Scenes/Obstacle/damage_viewport_container.tscn" id="6_pqfav"]
+[ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="7_eicfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yknox"]
 size = Vector2(242, 185)
@@ -13,8 +18,19 @@ size = Vector2(242, 185)
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(445, 216)
 script = ExtResource("2_w3ber")
-entry_penalty = 50.0
+params = ExtResource("3_12h0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(113, 68)
 shape = SubResource("RectangleShape2D_yknox")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = ExtResource("4_362lh")
+position = Vector2(85, -44)
+polygon = PackedVector2Array(769, 432, 718, 471, 697, 552, 558, 577, 545, 625, 579, 638, 630, 612, 724, 618, 835, 623, 936, 506, 937, 435, 964, 368, 994, 296, 945, 237, 945, 237, 875, 210, 771, 215, 741, 278, 801, 356, 861, 322, 872, 366, 820, 404)
+script = ExtResource("4_6tepr")
+params = ExtResource("3_12h0o")
+
+[node name="DamageViewportContainer" parent="." instance=ExtResource("6_pqfav")]
+
+[node name="DebugUI" parent="." instance=ExtResource("7_eicfu")]
