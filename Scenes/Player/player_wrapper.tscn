@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cootgdi51c8hy"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Bullet.gd" id="1_2amhp"]
+[ext_resource type="Resource" uid="uid://b8s27on8oxdni" path="res://ObstacleParams/Air.tres" id="2_7df06"]
+[ext_resource type="Texture2D" uid="uid://dgiq4pt0ku0sn" path="res://Images/angry-bullet-1189835545.jpg" id="2_a4qfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16vnq"]
+size = Vector2(60, 60)
+
+[node name="Player Wrapper" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 4096
+script = ExtResource("1_2amhp")
+open_air_properties = ExtResource("2_7df06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_16vnq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+rotation = 1.5708
+scale = Vector2(0.057, 0.057)
+texture = ExtResource("2_a4qfx")
+
+[node name="Camera2D" type="Camera2D" parent="Area2D"]
+ignore_rotation = false
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]

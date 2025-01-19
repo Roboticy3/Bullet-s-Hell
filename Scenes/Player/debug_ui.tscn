@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://86r55t6fop5b"]
+
+[ext_resource type="Script" path="res://Scripts/Debug/BulletStateDebugger.gd" id="1_hr36o"]
+[ext_resource type="Script" path="res://Scripts/Debug/DebugScreen.gd" id="2_inurg"]
+[ext_resource type="Script" path="res://Scripts/Debug/BulletCommandCenter.gd" id="3_qylfj"]
+[ext_resource type="Script" path="res://Scripts/Debug/BulletCommandLine.gd" id="4_wyjfo"]
+
+[node name="DebugUI" type="CanvasLayer"]
+
+[node name="BulletStateDebugger" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hr36o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BulletStateDebugger"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
+autowrap_mode = 0
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 244.0
+offset_top = 11.0
+offset_right = -11.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_inurg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_following = true
+autowrap_mode = 2
+script = ExtResource("3_qylfj")
+
+[node name="TextEdit" type="TextEdit" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Enter Command"
+scroll_fit_content_height = true
+caret_blink = true
+script = ExtResource("4_wyjfo")
+
+[connection signal="send" from="Control/VBoxContainer/TextEdit" to="Control/VBoxContainer/RichTextLabel" method="give_command"]

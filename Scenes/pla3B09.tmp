@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cootgdi51c8hy"]
+[gd_scene load_steps=9 format=3 uid="uid://cootgdi51c8hy"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Bullet.gd" id="1_2amhp"]
 [ext_resource type="Texture2D" uid="uid://dgiq4pt0ku0sn" path="res://Sprites/angry-bullet-1189835545.jpg" id="2_a4qfx"]
@@ -6,20 +6,20 @@
 [ext_resource type="Script" path="res://Scripts/Debug/DebugScreen.gd" id="4_4l6bx"]
 [ext_resource type="Script" path="res://Scripts/Debug/BulletCommandCenter.gd" id="4_mwsky"]
 [ext_resource type="Script" path="res://Scripts/Debug/BulletCommandLine.gd" id="5_vpgxg"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/Obstacle.gd" id="7_fae5t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16vnq"]
 size = Vector2(60, 60)
 
 [node name="Player Wrapper" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-motion_mode = 1
+[node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("1_2amhp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_16vnq")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 rotation = 1.5708
 scale = Vector2(0.057, 0.057)
 texture = ExtResource("2_a4qfx")
@@ -34,6 +34,7 @@ offset_bottom = 40.0
 script = ExtResource("3_7duks")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/BulletStateDebugger"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 fit_content = true
@@ -79,4 +80,9 @@ scroll_fit_content_height = true
 caret_blink = true
 script = ExtResource("5_vpgxg")
 
+[node name="OpenAirProperties" type="Area2D" parent="."]
+script = ExtResource("7_fae5t")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
 [connection signal="send" from="CanvasLayer/Control/VBoxContainer/TextEdit" to="CanvasLayer/Control/VBoxContainer/RichTextLabel" method="give_command"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxp2hodx3udo7"]
+
+[ext_resource type="Script" path="res://Scripts/MatchWindow.gd" id="1_28kai"]
+[ext_resource type="Script" path="res://Scripts/Damage Model/DamageModelCanvas.gd" id="1_lxqyi"]
+[ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="3_dedfi"]
+[ext_resource type="Script" path="res://Scripts/Damage Model/DamageModelPlayerShadow.gd" id="4_l1edo"]
+[ext_resource type="PackedScene" uid="uid://c4m7lu8i8pdkp" path="res://Scenes/Damage Model/damage_model_shadow.tscn" id="5_vysj5"]
+[ext_resource type="Script" path="res://Scripts/MatchCamera.gd" id="6_ylhho"]
+
+[node name="DamageModelCanvas" type="CanvasLayer"]
+script = ExtResource("1_lxqyi")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+msaa_2d = 1
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+script = ExtResource("1_28kai")
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(250, 0)
+scale = Vector2(8.305, 8.305)
+texture = ExtResource("3_dedfi")
+centered = false
+
+[node name="Node2D" type="Node2D" parent="SubViewportContainer/SubViewport"]
+script = ExtResource("4_l1edo")
+shadow = ExtResource("5_vysj5")
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+ignore_rotation = false
+script = ExtResource("6_ylhho")

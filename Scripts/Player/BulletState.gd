@@ -17,6 +17,10 @@ func update_movement_axis(to:Vector2):
 	last_movement_axis = movement_axis
 	movement_axis = to
 
+func turn_movement_axis(amount:float):
+	last_movement_axis = movement_axis
+	movement_axis = movement_axis.rotated(amount)
+
 ###VELOCITY HANDLING
 #update_velocity applies changes in direction to velocity, over time, and is
 #meant to be called every physics step
@@ -32,15 +36,35 @@ var velocity := Vector2.ZERO
 #to this value
 var speed := 0.0
 
-func update_velocity(to:Vector2, steer:float):
-	if (to.is_zero_approx()): return false
+#drag that's applied always
+#not technically physical drag, 
+#since it doesn't take current velocity into account
+var drag := 0.0
+#drag that can be applied while turning
+var drag_turning_factor := 0.0
+
+func update_velocity(to:Vector2, steer:float) -> Vector2:
+	if (to.is_zero_approx()): return Vector2.ZERO
 	var target_velocity := to.normalized() * speed
 	var steering_vector := target_velocity - velocity
+	speed -= drag_turning_factor * absf(velocity.angle_to_point(target_velocity))
 	velocity += steering_vector * steer
+	return steering_vector
 
 func update_speed(delta:float):
-	speed += delta
+	speed -= drag * delta
 	speed = max(speed, 0.0)
+
+#the player could be under any number of areas, in this case, sum their drags together
+#this lets us do sort of "layered materials" for extra-intimidating fortresses, 
+#and stops the game from crashing if two blocks share a pixel, which is nice
+func update_drag(open_air_properties:ObstacleParams, overlapping_areas:Array[Area2D]):
+	drag = open_air_properties.drag
+	drag_turning_factor = open_air_properties.drag_turning_factor
+	for o in overlapping_areas:
+		if o is Obstacle:
+			drag += o.params.drag
+			drag_turning_factor += o.params.drag_turning_factor
 
 ### DISPLAY
 #code copied from another project
@@ -68,5 +92,7 @@ func _to_string():
 	"PHYSICAL:\n" + \
 		"\t velocity: (" + draw_float(velocity.x) + ", " + draw_float(velocity.y) + ")\n" + \
 		"\t speed: " + draw_float(speed) + "\n" + \
+		"\t drag: " + draw_float(drag) + "\n" + \
+		"\t drag turning factor: " + draw_float(drag_turning_factor) + "\n" + \
 	"INPUT BASED:\n" + \
 		"\t movement axis: (" + draw_float(movement_axis.x) + ", " + draw_float(movement_axis.y) + ")\n"

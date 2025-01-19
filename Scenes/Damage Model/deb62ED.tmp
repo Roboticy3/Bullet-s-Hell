@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cud6dqwggobub"]
+
+[ext_resource type="Shader" path="res://Shaders/DebugDamageModel.gdshader" id="1_dobg1"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="1_wnf5b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pndwu"]
+shader = ExtResource("1_dobg1")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ttr7t"]
+
+[node name="DebugDamageModel" type="CanvasLayer"]
+script = ExtResource("1_wnf5b")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_pndwu")
+position = Vector2(881, 390)
+scale = Vector2(225, 225)
+texture = SubResource("PlaceholderTexture2D_ttr7t")
+polygon = PackedVector2Array(0.0468125, 0.0467501, 0.953063, 0.0389376, 0.960875, 0.960813, 0.023375, 0.968625)
+uv = PackedVector2Array(0.0468125, 0.0467501, 0.953063, 0.0389376, 0.960875, 0.960813, 0.023375, 0.968625)

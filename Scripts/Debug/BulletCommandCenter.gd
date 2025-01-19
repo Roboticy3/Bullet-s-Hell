@@ -4,12 +4,6 @@ extends RichTextLabel
 #a nice way to add custom commands for testing, see set_speed and 
 #set_position for examples
 
-#reference to the player so their state can be manipulated
-#it's good practice to ask `if(player is Bullet)` before working with it
-@export_node_path var player_path := \
-	NodePath("../../../../CharacterBody2D")
-@onready var player = get_node_or_null(player_path)
-
 #define commands here by mapping commmand names to functions
 #commands should take a PackedStringArray as an argument, which
 #will contain whatever the user sent over
@@ -21,6 +15,8 @@ var command_map := {
 	#you should get the message "command is registered incorrectly"
 	"invalid":0 
 }
+
+var player:Bullet
 
 #send a command to this command center
 func give_command(command:String):
@@ -54,9 +50,10 @@ func give_command(command:String):
 	
 	#since most commands reference the player, 
 	#check that this reference is valid
-	if !(player is Bullet):
-		append_text("Player " + str(player) + " is not a valid Bullet\n")
+	if !(Accessor.player is Bullet):
+		append_text("Player " + str(Accessor.player) + " is not a valid Bullet\n")
 		return
+	player = Accessor.player
 	
 	#finally, execute the command with the given arguments
 	#this can still throw an error if the function doesn't
