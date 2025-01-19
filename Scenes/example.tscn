@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0gtgs6na52ad"]
+
+[ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_k5qc0"]
+[ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="2_5n7ox"]
+[ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="3_va0wt"]
+[ext_resource type="PackedScene" uid="uid://cud6dqwggobub" path="res://Scenes/Damage Model/debug_damage_model.tscn" id="4_r0ipj"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="5_ptokp"]
+[ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="6_y86ix"]
+[ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="7_nf7jp"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/Polygon2DObstacleAdder.gd" id="8_nhy6u"]
+[ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="9_s1t2y"]
+
+[node name="Test2" type="Node2D"]
+
+[node name="Player Wrapper" parent="." instance=ExtResource("1_k5qc0")]
+
+[node name="DebugUI" parent="." instance=ExtResource("2_5n7ox")]
+
+[node name="DamageModelCanvas" parent="." instance=ExtResource("3_va0wt")]
+
+[node name="DebugDamageModel" parent="." instance=ExtResource("4_r0ipj")]
+
+[node name="ObstacleViewParent" type="Node2D" parent="."]
+script = ExtResource("5_ptokp")
+
+[node name="Polygon2D" type="Polygon2D" parent="ObstacleViewParent"]
+material = ExtResource("6_y86ix")
+position = Vector2(16, 8)
+texture = ExtResource("7_nf7jp")
+texture_scale = Vector2(0.378, 0.378)
+polygon = PackedVector2Array(298, 282, 422, 64, 705, 69, 738, 293, 482, 464, 213, 495, 217, 318)
+script = ExtResource("8_nhy6u")
+params = ExtResource("9_s1t2y")
