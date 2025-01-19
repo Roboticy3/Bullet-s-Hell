@@ -4,4 +4,4 @@ extends Node
 
 var player:Bullet
 
-var damage_viewport_container:SubViewportContainer
+signal obstacle_view_added(obstacle_view:CanvasItem)

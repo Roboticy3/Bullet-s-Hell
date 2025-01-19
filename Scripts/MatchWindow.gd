@@ -6,4 +6,4 @@ func _ready():
 	
 func update_size():
 	size = get_window().size
-	print(size)
+	#print(size)

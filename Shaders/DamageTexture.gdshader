@@ -25,15 +25,17 @@ void fragment() {
 	vec2 transformed_uv = UV * scale + offset;
 	transformed_uv = mod(transformed_uv, vec2(1.f));
 	
+	float maskValue = texture(damageMask, SCREEN_UV)[channel];
+
 	//define weights for how prevalend the undamaged and damaged textures should be
-	float weightUndamaged = texture(damageMask, SCREEN_UV)[channel] * influence + 1.f * (1.f - influence);
-	float weightDamaged = (1.f - weightUndamaged) * influence + 0.f * (1.f - influence);
-	
+	float weightDamaged = maskValue * influence;
+	float weightUndamaged = 1.f - weightDamaged;
+
 	//then sample the textures and scale the samples by their respective weights
 	vec4 sampleUndamaged = texture(texUndamaged, transformed_uv) * weightUndamaged;
 	vec4 sampleDamaged = texture(texDamaged, transformed_uv) * weightDamaged;
-	
-	//as long as the weights always add to about 1, the resulting COLOR will 
+
+	//as long as the weights always add to about 1, the resulting COLOR will
 	//be a nice blend depending on the damageMask
 	COLOR = sampleUndamaged + sampleDamaged;
 }

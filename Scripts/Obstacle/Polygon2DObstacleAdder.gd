@@ -8,6 +8,11 @@ extends Polygon2D
 #this script can be attached to any Polygon2D to turn it into an
 #Obstacle at runtime
 
+#this script is also an example of how to handle an obstacle view
+#that can be effected by a damage mask, such obstacles must fire the
+#Accessor.obstacle_view_added event to get registered by the damage model
+#See DamageModelCanvas for more info.
+
 var obstacle:Obstacle:
 	get: return obstacle
 var collision_polygon:CollisionPolygon2D:
@@ -38,3 +43,5 @@ func _set_polygon(new_polygon:PackedVector2Array):
 
 func _ready():
 	_set_polygon(polygon)
+	
+	Accessor.obstacle_view_added.emit(self)

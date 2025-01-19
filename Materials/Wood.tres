@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bmywlrdde1jtg"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dmbdjnvoy03ji"]
 
 [ext_resource type="Shader" path="res://Shaders/DamageTexture.gdshader" id="1_yqg2u"]
 [ext_resource type="Texture2D" uid="uid://c8jjp166t7rf2" path="res://Images/Wood.png" id="2_ilt75"]
