@@ -6,7 +6,7 @@
 
 [resource]
 shader = ExtResource("1_mqneo")
-shader_parameter/scale = Vector2(8, 8)
+shader_parameter/scale = Vector2(1, 1)
 shader_parameter/offset = Vector2(0, 0)
 shader_parameter/channel = 3
 shader_parameter/influence = 1.0
