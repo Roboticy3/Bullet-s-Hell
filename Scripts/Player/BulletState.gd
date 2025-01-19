@@ -17,6 +17,10 @@ func update_movement_axis(to:Vector2):
 	last_movement_axis = movement_axis
 	movement_axis = to
 
+func turn_movement_axis(amount:float):
+	last_movement_axis = movement_axis
+	movement_axis = movement_axis.rotated(amount)
+
 ###VELOCITY HANDLING
 #update_velocity applies changes in direction to velocity, over time, and is
 #meant to be called every physics step
