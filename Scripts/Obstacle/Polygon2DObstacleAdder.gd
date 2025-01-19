@@ -20,7 +20,8 @@ var collision_polygon:CollisionPolygon2D:
 	
 @export var params:ObstacleParams
 
-#upate the shape of this Polygon2D
+#upate the shape of this Polygon2D, preceeded with an _ because set_polygon is 
+#taken on Polygon2D (go figure)
 func _set_polygon(new_polygon:PackedVector2Array):
 	#clear the existing obstacle underneath if necessary
 	if (obstacle != null): remove_child(obstacle)
@@ -44,4 +45,6 @@ func _set_polygon(new_polygon:PackedVector2Array):
 func _ready():
 	_set_polygon(polygon)
 	
-	Accessor.obstacle_view_added.emit(self)
+	
+	
+	

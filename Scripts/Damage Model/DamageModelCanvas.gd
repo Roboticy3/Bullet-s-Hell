@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-### Contain the damage model for obstacles
+### Pass the damage model for obstacles to the Accessor
 #So what's all this fuss about a damage model anyways?
 #The damage model is a texture that can be used to show obstacles in a damaged
 #state. This is desirable because we can show the player's path of destruction.
@@ -20,18 +20,18 @@ extends CanvasLayer
 var damage_model:ViewportTexture
 
 func _ready() -> void:
+	
 	#Viewport textures can't exist as files, they must be attached to a scene.
 	#For this reason, materials using DamageTexture can't have the damage model 
 	#applied by default (to my knowledge).
-	#Instead, we connect a signal that should be fired whenever an obstacle view
-	#calls its _ready method, passing itself as a reference.
-	#Then, give_damage_model attempts to pass the damage model to the obstacle
-	#view's instance of the shader.
-	Accessor.obstacle_view_added.connect(give_damage_model)
+	
+	#Since a lot of objects access the same damage model, and there should only
+	#really be one on screen at the same time, we feed it through the accessor
 	
 	#print("trying to get texture from subviewport ", subviewport)
 	if (subviewport is SubViewport):
-		damage_model = subviewport.get_texture()
+		Accessor.damage_model_viewport = subviewport
+		#print("set damage_model_viewport to ", subviewport)
 
 func give_damage_model(obstacle_view:CanvasItem):
 	#print("revieved material ", obstacle_view.material, " through obstacle_view_added")

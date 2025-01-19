@@ -1,16 +1,10 @@
 extends Node
 
-var SHADOW_TIME_FACTOR := 200.0
-var MAX_SHADOW_TIME := 2.0
-@onready var timer := Timer.new()
+var SHADOW_DIAMETER := 100.0
 
 @export var shadow:PackedScene
 
 func _ready() -> void:
-	
-	add_child(timer)
-	timer.one_shot = true
-	timer.timeout.connect(push_shadow)
 	
 	if !(Accessor.player is Bullet):
 		set_physics_process(false)
@@ -18,21 +12,20 @@ func _ready() -> void:
 			set_physics_process(Accessor.player is Bullet)
 		)
 
+var last_shadow_position := Vector2.INF
+
 func _physics_process(delta: float) -> void:
-	var speed := Accessor.player.state.speed
-	if (is_zero_approx(sqrt(speed))): return
 	
-	var timer_target := SHADOW_TIME_FACTOR / speed
-	if timer_target != clampf(timer_target, 0.0, MAX_SHADOW_TIME): return
-	
-	if timer.is_stopped():
-		#print("drop a shadow in ", roundf(timer_target * 100.0), " time")
-		timer.start(timer_target)
+	var distance_traveled := Accessor.player.position.\
+		distance_to(last_shadow_position)
+	if distance_traveled > SHADOW_DIAMETER:
+		push_shadow()
+		last_shadow_position = Accessor.player.position
 	
 func push_shadow() -> void:
 	if !shadow.can_instantiate(): return
 	
 	var instance := shadow.instantiate()
-	print("adding shadow at", Accessor.player.position)
+	#print("adding shadow at", Accessor.player.position)
 	add_child(instance)
 	instance.position = Accessor.player.position

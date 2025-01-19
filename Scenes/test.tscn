@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmqol3866ftwi"]
+[gd_scene load_steps=12 format=3 uid="uid://dmqol3866ftwi"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8wqq4"]
 [ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="2_sljrt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="4_362lh"]
 [ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="5_xqx01"]
 [ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="7_eicfu"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="7_xfxjp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yknox"]
 size = Vector2(242, 185)
@@ -32,7 +33,10 @@ params = ExtResource("3_12h0o")
 position = Vector2(113, 68)
 shape = SubResource("RectangleShape2D_yknox")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("7_xfxjp")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D"]
 material = ExtResource("4_362lh")
 position = Vector2(762, 275)
 scale = Vector2(4.63, 4.63)
@@ -42,7 +46,7 @@ uv = PackedVector2Array(9.01261, 34.8942, -8.26905, 19.5971, 4.38211, 2.39812, 4
 script = ExtResource("4_6tepr")
 params = ExtResource("3_12h0o")
 
-[node name="Polygon2D2" type="Polygon2D" parent="."]
+[node name="Polygon2D2" type="Polygon2D" parent="Node2D"]
 material = ExtResource("4_362lh")
 position = Vector2(692, 315)
 rotation = 2.87172
