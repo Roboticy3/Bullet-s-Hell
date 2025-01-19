@@ -33,7 +33,7 @@ func _physics_process(delta: float):
 	state.update_drag(open_air_properties, get_overlapping_areas())
 	state.update_speed(delta)
 	state.update_velocity(
-		state.movement_axis.normalized(), 
+		state.movement_axis, 
 		STEERING_FACTOR * delta
 	)
 	
@@ -44,7 +44,7 @@ func _physics_process(delta: float):
 #its more convenient to handle the actual entering and exiting here
 func _on_area_entered(area: Area2D) -> void:
 	if (area is Obstacle):
-		print("entered ", area)
+		#print("entered ", area)
 		state.speed -= area.params.entry_penalty
 
 func _on_area_exited(area: Area2D) -> void:

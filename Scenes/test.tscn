@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmqol3866ftwi"]
+[gd_scene load_steps=11 format=3 uid="uid://dmqol3866ftwi"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8wqq4"]
-[ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Obstacle/damage_model_canvas.tscn" id="2_sljrt"]
+[ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="2_sljrt"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Obstacle.gd" id="2_w3ber"]
+[ext_resource type="PackedScene" uid="uid://cud6dqwggobub" path="res://Scenes/Damage Model/debug_damage_model.tscn" id="3_3eguv"]
 [ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="3_12h0o"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Polygon2DObstacleAdder.gd" id="4_6tepr"]
 [ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="4_362lh"]
@@ -17,6 +18,8 @@ size = Vector2(242, 185)
 [node name="DebugUI" parent="." instance=ExtResource("7_eicfu")]
 
 [node name="DamageModelCanvas" parent="." instance=ExtResource("2_sljrt")]
+
+[node name="DebugDamageModel" parent="." instance=ExtResource("3_3eguv")]
 
 [node name="Player Wrapper" parent="." instance=ExtResource("1_8wqq4")]
 

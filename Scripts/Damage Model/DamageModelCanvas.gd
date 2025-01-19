@@ -29,17 +29,6 @@ func _ready() -> void:
 	#view's instance of the shader.
 	Accessor.obstacle_view_added.connect(give_damage_model)
 	
-	#the subviewport, if the right flag is checked, should always draw 
-	#its contents, whether it is visible or not. 
-	#However, this doesn't seem to be working. >:(
-	#Since the damage model is alpha-based, and contains nothing 
-	#when the game starts, we can afford to have it visible for a second, then
-	#hide it, which kicks it into gear for some reason.
-	visible = true
-	get_tree().create_timer(1.0).timeout.connect(func ():
-		visible = false
-	)
-	
 	#print("trying to get texture from subviewport ", subviewport)
 	if (subviewport is SubViewport):
 		damage_model = subviewport.get_texture()
