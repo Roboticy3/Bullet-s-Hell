@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv56vc2trbu0n"]
+
+[ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="1_y4nmd"]
+[ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="2_3iu4s"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/Polygon2DObstacleAdder.gd" id="3_jh62a"]
+[ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="4_l84qh"]
+
+[node name="Polygon2D3" type="Polygon2D"]
+material = ExtResource("1_y4nmd")
+texture = ExtResource("2_3iu4s")
+polygon = PackedVector2Array(-30, 29, 30, 29, 30, -30, -30, -30)
+script = ExtResource("3_jh62a")
+params = ExtResource("4_l84qh")
