@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg6asqno2n740"]
+
+[ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="1_dup77"]
+[ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="2_oqxk5"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/Obstacle.gd" id="3_jwpi0"]
+[ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="4_2k1ke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcqys"]
+size = Vector2(64, 64)
+
+[node name="Sprite2D" type="Sprite2D"]
+material = ExtResource("1_dup77")
+position = Vector2(530, -159)
+scale = Vector2(5, 5)
+texture = ExtResource("2_oqxk5")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_jwpi0")
+params = ExtResource("4_2k1ke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qcqys")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmqol3866ftwi"]
+[gd_scene load_steps=15 format=3 uid="uid://dmqol3866ftwi"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8wqq4"]
 [ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="2_sljrt"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="5_xqx01"]
 [ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="7_eicfu"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="7_xfxjp"]
+[ext_resource type="PackedScene" uid="uid://dg6asqno2n740" path="res://Scenes/Obstacle/sprite_2d_obstacle.tscn" id="11_d0d8x"]
+[ext_resource type="Material" uid="uid://ceue6c20ktcxj" path="res://Materials/Cinderblock.tres" id="12_r7ur5"]
+[ext_resource type="Resource" uid="uid://8sd51g2hpt8v" path="res://ObstacleParams/Cinderblock.tres" id="13_kktwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yknox"]
 size = Vector2(242, 185)
@@ -33,22 +36,12 @@ params = ExtResource("3_12h0o")
 position = Vector2(113, 68)
 shape = SubResource("RectangleShape2D_yknox")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="ObstacleViewParent" type="Node2D" parent="."]
 script = ExtResource("7_xfxjp")
 
-[node name="Polygon2D" type="Polygon2D" parent="Node2D"]
+[node name="Polygon2D2" type="Polygon2D" parent="ObstacleViewParent"]
 material = ExtResource("4_362lh")
-position = Vector2(762, 275)
-scale = Vector2(4.63, 4.63)
-texture = ExtResource("5_xqx01")
-polygon = PackedVector2Array(9.01261, 34.8942, -8.26905, 19.5971, 4.38211, 2.39812, 45.7258, 2.64618, 74.4183, 19.349, 67.0591, 52.672, 47.6486, 64.8072, 19.2836, 64.4077, -4.68675, 61.6111, -14.5412, 48.6937, 4.36873, 47.0957, 19.1505, 56.018, 40.4575, 53.4878, 55.2392, 44.2992, 54.4402, 23.7912, 38.4599, 11.6728, 17.5524, 13.2708)
-uv = PackedVector2Array(9.01261, 34.8942, -8.26905, 19.5971, 4.38211, 2.39812, 45.7258, 2.64618, 74.4183, 19.349, 67.0591, 52.672, 47.6486, 64.8072, 19.2836, 64.4077, -4.68675, 61.6111, -14.5412, 48.6937, 4.36873, 47.0957, 19.1505, 56.018, 40.4575, 53.4878, 55.2392, 44.2992, 54.4402, 23.7912, 38.4599, 11.6728, 17.5524, 13.2708)
-script = ExtResource("4_6tepr")
-params = ExtResource("3_12h0o")
-
-[node name="Polygon2D2" type="Polygon2D" parent="Node2D"]
-material = ExtResource("4_362lh")
-position = Vector2(692, 315)
+position = Vector2(880, 377)
 rotation = 2.87172
 scale = Vector2(5.38, 5.38)
 texture = ExtResource("5_xqx01")
@@ -56,3 +49,21 @@ polygon = PackedVector2Array(9.59142, 23.4007, 0.0823746, 17.6953, -0.248375, 11
 uv = PackedVector2Array(9.59142, 23.4007, 0.0823746, 17.6953, -0.248375, 11.7418, 7.93767, 6.03636, 20.4235, 6.28442, 35.5552, 9.34385, 47.0488, 10.7495, 56.9713, 14.7185, 65.3227, 22.5738, 62.7594, 35.7211, 52.5061, 38.2017, 43.4105, 47.4627, 34.3976, 57.3852, 22.656, 55.8141, 20.01, 49.1991, 21.9118, 40.2689, 23.2348, 33.8193, 15.2142, 31.4214)
 script = ExtResource("4_6tepr")
 params = ExtResource("3_12h0o")
+
+[node name="Sprite2D" parent="ObstacleViewParent" instance=ExtResource("11_d0d8x")]
+material = ExtResource("12_r7ur5")
+
+[node name="Area2D" parent="ObstacleViewParent/Sprite2D" index="0"]
+params = ExtResource("13_kktwm")
+
+[node name="Polygon2D" type="Polygon2D" parent="ObstacleViewParent"]
+material = ExtResource("12_r7ur5")
+position = Vector2(-465, -15)
+rotation = -0.0128383
+texture = ExtResource("5_xqx01")
+texture_scale = Vector2(0.153, 0.153)
+polygon = PackedVector2Array(98.8749, 88.2766, 80.457, -112.976, -183.802, -172.374, -249.698, 52.7987, -110.828, 219.595, 109.833, 247.43, 194.866, 167.516, 266.813, -61.5798, 201.168, -245.438, -171.134, -302.222, -390.989, -237.039, -486.127, 6.75967, -381.024, 233.128, -302.337, 180.133, -383.803, 60.0777, -390.684, -105.024, -241.796, -251.125, -76.7326, -255.006, 130.108, -163.343, 138.128, 68.779)
+script = ExtResource("4_6tepr")
+params = ExtResource("13_kktwm")
+
+[editable path="ObstacleViewParent/Sprite2D"]
