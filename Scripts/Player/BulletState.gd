@@ -51,8 +51,9 @@ func update_velocity(to:Vector2, steer:float) -> Vector2:
 	velocity += steering_vector * steer
 	return steering_vector
 
-func update_speed(delta:float):
-	speed -= drag * delta
+func update_speed(delta:float, max_speed:float):
+	var drag_speed := speed / max_speed
+	speed -= drag * drag_speed * drag_speed * delta
 	speed = max(speed, 0.0)
 
 #the player could be under any number of areas, in this case, sum their drags together

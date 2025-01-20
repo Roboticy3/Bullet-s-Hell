@@ -10,6 +10,7 @@ extends RichTextLabel
 var command_map := {
 	"set_speed":set_speed,
 	"set_position":com_set_position,
+	"set_control_type":set_control_type,
 	
 	#if you use a command mapped to something that isn't a function,
 	#you should get the message "command is registered incorrectly"
@@ -95,5 +96,43 @@ func com_set_position(args:PackedStringArray):
 	
 	var new_pos := Vector2(float(args[1]), float(args[2]))
 	target.position = new_pos
+
+func keys_to_args_string(keys:Array) -> String:
+	if keys.size() == 0: return "[]"
+	var s := "["
+	for k in keys.size() - 1:
+		s += str(keys[k]) + "|"
+	s += keys[keys.size() - 1] + "]"
+	return s
+
+func set_control_type(args:PackedStringArray):
+	
+	var controller = Accessor.player_controller
+	if !(controller is BulletController):
+		append_text("Can't edit " + str(controller) + " as a controller!")
+		return
+	
+	var type_names = controller.CONTROL_MODE.keys()
+	
+	if (args.size() < 2):
+		append_text("set_control_type requires 1 argument: set_contol_type " + \
+			keys_to_args_string(type_names) + "\n"
+		)
+		return
+	
+	var type_name_idx = type_names.find(args[1].to_upper())
+	if (type_name_idx == -1):
+		append_text("Invalid type name. " + \
+			"set_control_type requires 1 argument: set_contol_type " +\
+			keys_to_args_string(type_names) + "\n"
+		)
+		return
+	
+	controller.update_control_mode(type_name_idx)
+	
+	append_text("set control type to " + args[1] + "\n")
+	
+	
+	
 	
 	
