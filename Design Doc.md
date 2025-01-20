@@ -1,6 +1,6 @@
 # Bullet's Hell Design Doc
 ## Overview
-Bullet's Hell is a top down 2D game in which the avatar is a bullet. The goal of the game is to connect with the assassination target. Depending on the difficulty of the level there are one or more target(s). The path to the target is be impeded by various obstacles. There are also be power ups on the path to the target. The bullet slowly loses speed over time as the avatar travels towards the target. The player beats the level if the bullet is able to connect with the target(s). The player loses the level if the avatar runs out of speed or is stopped by an obstacle. There are coins that can be collected in the gamespace as additional incentive during the gameplay. Additionally, a set number of coins are earned depending on the amount of time it takes to eliminate the target(s). There is a cosmetics shop for the player to spend their coins on. There are three settings (beach, town, and forrest) that each level takes place in. Each setting is be reused for different level designs.
+Bullet's Hell will is top down 2D game in which the avatar is a bullet. The goal of the game is to connect with the assassination target. Depending on the difficulty of the level there are one or more target(s). The path to the target is be impeded by various obstacles. There are also be power ups on the path to the target. The bullet slowly loses speed over time as the avatar travels towards the target. The player beats the level if the bullet is able to connect with the target(s). The player loses the level if the avatar runs out of speed or is stopped by an obstacle. There are coins that can be collected in the gamespace as additional incentive during the gameplay. Additionally, a set number of coins are earned depending on the amount of time it takes to eliminate the target(s). There is a cosmetics shop for the player to spend their coins on. There are three settings (beach, town, and forrest) that each level takes place in. Each setting is be reused for different level designs.
 ## Mechanics
 * WASD, or LR arrow keys, or mouse for avatar movement. 
 * Bullet loses speed over time  
@@ -27,3 +27,10 @@ Bullet's Hell is a top down 2D game in which the avatar is a bullet. The goal of
 ## UI
 * Bullet holes are on the menu and bullets are the buttons.  
 * UI color palette is Gunmetal grey with white accents. The buttons are white bullet buttons. A red dot is used for the mouse pointer.
+
+## Timeline
+Sound Effects, Powerups, Beach level #1 - 1/24  
+Begin Playtesting - 1/25  
+Music, Art, Story - 1/27  
+Finalize art, music mechanics, level design, story. UI, cosmetics shop - 1/29  
+Playtesting, bug fixes, final touches - 1/31
