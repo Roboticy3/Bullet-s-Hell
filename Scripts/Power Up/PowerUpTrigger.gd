@@ -1,27 +1,29 @@
 extends Area2D
 
-### Give the player a speed boost
-#Power ups inherit Area2D. When they enter another area, they check if that area
-#is the player.
+### Give the player a power up
+#A "power up" is a scene that is added as a child of the player when they enter
+#this area. 
 
-#In the case of the speed boost, we need to increase the player's speed, then,
-#after a set amount of time, "remove" the boost.
+#The power up is then responsible for all of its own behavior. See 
+#Scripts/Power Up/SpeedBoost.gd and Scenes/Power Up/speed_boost.tscn.
 
 @export var power_up:PackedScene
 
-@export var player_target_prop := "player"
-
-func _on_area_entered(area:Area2D):
-	
+func instantiate():
+		
 	if !(power_up is PackedScene):
 		push_error(self, "'s power_up ", power_up, " is not a valid scene!")
-		return
+		return null
 	if ! power_up.can_instantiate():
 		push_error(self, "'s power_up ", power_up, " can't be instantiated!")
-		return
+		return null
 	
-	
+	return power_up.instantiate()
+
+func _on_area_entered(area:Area2D):
 	if area is Bullet:
-		var instance := power_up.instantiate()
-		instance.set(player_target_prop, area)
-		area.add_child(instance)
+		add_power_up(area)
+
+func add_power_up(to:Bullet):
+	var instance := power_up.instantiate()
+	to.add_child(instance)
