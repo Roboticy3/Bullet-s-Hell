@@ -12,7 +12,7 @@ class_name SpeedBoost
 var speed_record:float
 var player:Bullet
 
-const SPEED_BOOST := 500.0
+const SPEED_BOOST := 2000.0
 
 const BOOST_TIME := 4.0
 
@@ -31,7 +31,7 @@ func _ready():
 	timer.timeout.connect(queue_free) #when the time runs out, destroy this boost
 	
 	#apply the speed boost
-	player.state.speed = speed_record + SPEED_BOOST
+	player.state.speed = SPEED_BOOST
 
 #if the player gets too slow, end the speed boost early
 func _physics_process(delta: float) -> void:

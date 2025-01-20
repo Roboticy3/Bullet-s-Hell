@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw1r8w41vcb7v"
-path="res://.godot/imported/ezgif-4-2333b85761.png-c7b200d44a72130444a14a03a40bdcc9.ctex"
+uid="uid://jdq3wn6200jt"
+path="res://.godot/imported/speed_boost_bomb.png-e8ce49fc845a35589195f25fa3522bd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/ezgif-4-2333b85761.png"
-dest_files=["res://.godot/imported/ezgif-4-2333b85761.png-c7b200d44a72130444a14a03a40bdcc9.ctex"]
+source_file="res://Images/speed_boost_bomb.png"
+dest_files=["res://.godot/imported/speed_boost_bomb.png-e8ce49fc845a35589195f25fa3522bd1.ctex"]
 
 [params]
 

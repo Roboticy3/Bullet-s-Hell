@@ -9,6 +9,9 @@ extends Area2D
 
 @export var power_up:PackedScene
 
+#If true, the powerup area will become non-interactive after it finds a player
+@export var one_shot := true
+
 func instantiate():
 		
 	if !(power_up is PackedScene):
@@ -24,6 +27,14 @@ func _on_area_entered(area:Area2D):
 	if area is Bullet:
 		add_power_up(area)
 
+signal power_up_added
+
 func add_power_up(to:Bullet):
 	var instance := power_up.instantiate()
 	to.add_child(instance)
+	
+	if one_shot:
+		set_deferred("monitoring", false)
+		set_deferred("monitorable", false)
+	
+	power_up_added.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dmqol3866ftwi"]
+[gd_scene load_steps=16 format=3 uid="uid://dmqol3866ftwi"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8wqq4"]
 [ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="2_sljrt"]
@@ -13,13 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://dg6asqno2n740" path="res://Scenes/Obstacle/sprite_2d_obstacle.tscn" id="11_d0d8x"]
 [ext_resource type="Material" uid="uid://ceue6c20ktcxj" path="res://Materials/Cinderblock.tres" id="12_r7ur5"]
 [ext_resource type="Resource" uid="uid://8sd51g2hpt8v" path="res://ObstacleParams/Cinderblock.tres" id="13_kktwm"]
-[ext_resource type="Script" path="res://Scripts/Power Up/PowerUpTrigger.gd" id="14_a88nc"]
-[ext_resource type="PackedScene" uid="uid://maxwe5asqw5" path="res://Scenes/Power Up/speed_boost.tscn" id="15_bqujr"]
+[ext_resource type="PackedScene" uid="uid://dpw5xqm4w2qk6" path="res://Scenes/Power Up Trigger/speed_boost_trigger.tscn" id="14_jau2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yknox"]
 size = Vector2(242, 185)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmryg"]
 
 [node name="Test" type="Node2D"]
 
@@ -71,14 +68,8 @@ polygon = PackedVector2Array(98.8749, 88.2766, 80.457, -112.976, -183.802, -172.
 script = ExtResource("4_6tepr")
 params = ExtResource("13_kktwm")
 
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(456, 1)
-script = ExtResource("14_a88nc")
-power_up = ExtResource("15_bqujr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-shape = SubResource("RectangleShape2D_tmryg")
-
-[connection signal="area_entered" from="Area2D2" to="Area2D2" method="_on_area_entered"]
+[node name="Area2D2" parent="." instance=ExtResource("14_jau2r")]
+position = Vector2(1042, -209)
+scale = Vector2(8.74323, 8.74323)
 
 [editable path="ObstacleViewParent/Sprite2D"]
