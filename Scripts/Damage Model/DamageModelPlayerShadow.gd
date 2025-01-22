@@ -3,7 +3,8 @@ extends Node
 var SHADOW_DIAMETER := 50.0
 
 @export var shadow:PackedScene
-@export var hole:PackedScene
+@export var hole_front:PackedScene
+@export var hole_back:PackedScene
 
 func _ready() -> void:
 	
@@ -17,10 +18,12 @@ func _ready() -> void:
 		attach_hole_pusher(Accessor.player)
 
 func attach_hole_pusher(player:Bullet):
-	player.area_entered.connect(hole_pusher)
+	player.area_entered.connect(hole_pusher.bind(hole_front))
+	player.area_exited.connect(hole_pusher.bind(hole_back))
 
-func hole_pusher(area:Area2D):
+func hole_pusher(area:Area2D, hole:PackedScene):
 	if (area is Obstacle):
+		print("pushing hole!")
 		push_shadow_to_player_transform(hole)
 
 var last_shadow_position := Vector2.INF
