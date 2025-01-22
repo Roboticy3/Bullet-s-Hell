@@ -31,6 +31,7 @@ polygon = PackedVector2Array(-102, 67, 10, 134, 108, 48, 30, -30, -30, -30)
 
 [node name="StructureExample" parent="." instance=ExtResource("5_rmdrl")]
 position = Vector2(-752, -142)
+scale = Vector2(0.619768, 0.619768)
 
 [node name="Forest" type="Node2D" parent="."]
 
