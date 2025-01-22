@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4m7lu8i8pdkp"]
+
+[ext_resource type="Material" uid="uid://bxeodwlndhmh8" path="res://Materials/Additive.tres" id="1_aix62"]
+[ext_resource type="Texture2D" uid="uid://d0065menrvfbx" path="res://Images/DamageTrail.png" id="1_pvcb4"]
+
+[node name="DamageModelShadow" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_aix62")
+texture = ExtResource("1_pvcb4")

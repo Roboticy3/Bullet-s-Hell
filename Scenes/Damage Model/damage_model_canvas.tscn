@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxp2hodx3udo7"]
+[gd_scene load_steps=8 format=3 uid="uid://cxp2hodx3udo7"]
 
 [ext_resource type="Script" path="res://Scripts/MatchWindow.gd" id="1_28kai"]
 [ext_resource type="Script" path="res://Scripts/Damage Model/DamageModelCanvas.gd" id="1_lxqyi"]
 [ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="3_dedfi"]
 [ext_resource type="Script" path="res://Scripts/Damage Model/DamageModelPlayerShadow.gd" id="4_l1edo"]
-[ext_resource type="PackedScene" uid="uid://c4m7lu8i8pdkp" path="res://Scenes/Damage Model/damage_model_shadow.tscn" id="5_vysj5"]
+[ext_resource type="PackedScene" uid="uid://c4m7lu8i8pdkp" path="res://Scenes/Damage Model/damage_model_trail.tscn" id="5_vysj5"]
+[ext_resource type="PackedScene" uid="uid://dpnpuk6jt4bmv" path="res://Scenes/Damage Model/damage_model_hole.tscn" id="6_k8wox"]
 [ext_resource type="Script" path="res://Scripts/MatchCamera.gd" id="6_ylhho"]
 
 [node name="DamageModelCanvas" type="CanvasLayer"]
@@ -33,6 +34,7 @@ centered = false
 [node name="Node2D" type="Node2D" parent="SubViewportContainer/SubViewport"]
 script = ExtResource("4_l1edo")
 shadow = ExtResource("5_vysj5")
+hole = ExtResource("6_k8wox")
 
 [node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
 ignore_rotation = false
