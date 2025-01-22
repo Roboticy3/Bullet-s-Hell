@@ -1,23 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://deamvxo6m4beu"]
+[gd_scene load_steps=10 format=3 uid="uid://deamvxo6m4beu"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_ye4gd"]
 [ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="2_3igg5"]
 [ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="3_labvh"]
 [ext_resource type="PackedScene" uid="uid://cud6dqwggobub" path="res://Scenes/Damage Model/debug_damage_model.tscn" id="4_y24lh"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="5_201f6"]
+[ext_resource type="PackedScene" uid="uid://dg4kbv76i22tw" path="res://Scenes/Obstacle/structure_example.tscn" id="5_rmdrl"]
 [ext_resource type="PackedScene" uid="uid://cv56vc2trbu0n" path="res://Scenes/Obstacle/wood_polygon.tscn" id="6_itsr6"]
 [ext_resource type="PackedScene" uid="uid://bwrdqknvf018d" path="res://Scenes/Obstacle/cindeblock_polygon.tscn" id="7_teg70"]
 [ext_resource type="PackedScene" uid="uid://bqc01s2g0pnyx" path="res://Scenes/Obstacle/tree.tscn" id="8_mchcc"]
 
 [node name="Test2" type="Node2D"]
-
-[node name="Player Wrapper" parent="." instance=ExtResource("1_ye4gd")]
-
-[node name="DebugUI" parent="." instance=ExtResource("2_3igg5")]
-
-[node name="DamageModelCanvas" parent="." instance=ExtResource("3_labvh")]
-
-[node name="DebugDamageModel" parent="." instance=ExtResource("4_y24lh")]
 
 [node name="ObstacleViewParent" type="Node2D" parent="."]
 script = ExtResource("5_201f6")
@@ -34,32 +27,45 @@ polygon = PackedVector2Array(-103, 129, 86, 250, 264, 139, 193, -146, -3, -263, 
 position = Vector2(8, 217)
 polygon = PackedVector2Array(-102, 67, 10, 134, 108, 48, 30, -30, -30, -30)
 
-[node name="Tree" parent="." instance=ExtResource("8_mchcc")]
+[node name="Player Wrapper" parent="." instance=ExtResource("1_ye4gd")]
+
+[node name="StructureExample" parent="." instance=ExtResource("5_rmdrl")]
+position = Vector2(-752, -142)
+
+[node name="Forest" type="Node2D" parent="."]
+
+[node name="Tree" parent="Forest" instance=ExtResource("8_mchcc")]
 position = Vector2(199, 296)
 
-[node name="Tree2" parent="." instance=ExtResource("8_mchcc")]
+[node name="Tree2" parent="Forest" instance=ExtResource("8_mchcc")]
 position = Vector2(200, -259)
 
-[node name="Tree3" parent="." instance=ExtResource("8_mchcc")]
+[node name="Tree3" parent="Forest" instance=ExtResource("8_mchcc")]
 position = Vector2(409, -330)
 
-[node name="Tree4" parent="." instance=ExtResource("8_mchcc")]
+[node name="Tree4" parent="Forest" instance=ExtResource("8_mchcc")]
 position = Vector2(273, -368)
 
-[node name="Tree5" parent="." instance=ExtResource("8_mchcc")]
+[node name="Tree5" parent="Forest" instance=ExtResource("8_mchcc")]
 position = Vector2(424, -219)
 
-[node name="Tree6" parent="." instance=ExtResource("8_mchcc")]
+[node name="Tree6" parent="Forest" instance=ExtResource("8_mchcc")]
 position = Vector2(600, -337)
 
-[node name="Tree7" parent="." instance=ExtResource("8_mchcc")]
+[node name="Tree7" parent="Forest" instance=ExtResource("8_mchcc")]
 position = Vector2(58, -365)
 
-[node name="Tree8" parent="." instance=ExtResource("8_mchcc")]
+[node name="Tree8" parent="Forest" instance=ExtResource("8_mchcc")]
 position = Vector2(517, -446)
 
-[node name="Tree9" parent="." instance=ExtResource("8_mchcc")]
+[node name="Tree9" parent="Forest" instance=ExtResource("8_mchcc")]
 position = Vector2(172, -479)
 
-[node name="Tree10" parent="." instance=ExtResource("8_mchcc")]
+[node name="Tree10" parent="Forest" instance=ExtResource("8_mchcc")]
 position = Vector2(569, -214)
+
+[node name="DebugUI" parent="." instance=ExtResource("2_3igg5")]
+
+[node name="DamageModelCanvas" parent="." instance=ExtResource("3_labvh")]
+
+[node name="DebugDamageModel" parent="." instance=ExtResource("4_y24lh")]
