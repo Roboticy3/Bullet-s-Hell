@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObstacleParams" load_steps=2 format=3 uid="uid://c08aivceamjkr"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleParams.gd" id="1_fqupo"]
+
+[resource]
+script = ExtResource("1_fqupo")
+entry_penalty = 0.0
+exit_penalty = 0.0
+drag = 10.0
+drag_turning_factor = 1.0
