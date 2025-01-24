@@ -75,4 +75,6 @@ func control_mouse(delta:float):
 	var mouse_position := player.get_global_mouse_position() 
 	var target_vector := mouse_position - player.position
 	
-	player.state.update_movement_axis(target_vector)
+	var axis := player.state.movement_axis
+	
+	player.state.turn_movement_axis(axis.angle_to(target_vector) * 10.0 * delta)
