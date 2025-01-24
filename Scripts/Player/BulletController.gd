@@ -9,7 +9,7 @@ enum CONTROL_MODE {
 	MOUSE
 }
 
-@export var control_mode := CONTROL_MODE.STEER
+@export var control_mode := CONTROL_MODE.MOUSE
 var control_function:Callable
 
 @export var steering_sensitivity := 5.0
