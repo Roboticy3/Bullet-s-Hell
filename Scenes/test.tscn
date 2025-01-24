@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmqol3866ftwi"]
+[gd_scene load_steps=20 format=3 uid="uid://dmqol3866ftwi"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8wqq4"]
 [ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="2_sljrt"]
@@ -13,12 +13,17 @@
 [ext_resource type="PackedScene" uid="uid://dg6asqno2n740" path="res://Scenes/Obstacle/sprite_2d_obstacle.tscn" id="11_d0d8x"]
 [ext_resource type="Material" uid="uid://ceue6c20ktcxj" path="res://Materials/Cinderblock.tres" id="12_r7ur5"]
 [ext_resource type="Resource" uid="uid://8sd51g2hpt8v" path="res://ObstacleParams/Cinderblock.tres" id="13_kktwm"]
-[ext_resource type="PackedScene" uid="uid://dpw5xqm4w2qk6" path="res://Scenes/Power Up Trigger/speed_boost_trigger.tscn" id="14_jau2r"]
+[ext_resource type="PackedScene" uid="uid://cbtmbh2hvxgx5" path="res://Scenes/Power Up/Invincibility.tscn" id="14_h3vqi"]
+[ext_resource type="PackedScene" uid="uid://dpw5xqm4w2qk6" path="res://Scenes/Power Up Trigger/speed_boost_trigger.tscn" id="15_c724m"]
+[ext_resource type="PackedScene" uid="uid://dhw67fvfh8j3r" path="res://Scenes/Power Up Trigger/Invincibility_Trigger.tscn" id="16_kqnh8"]
+[ext_resource type="PackedScene" uid="uid://dbe8ws3ejr2gd" path="res://Scenes/Power Up Trigger/Teleport_Trigger.tscn" id="17_30dgc"]
+[ext_resource type="Script" path="res://Scenes/Power Up Trigger/teleport_trigger.gd" id="18_mrw06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yknox"]
 size = Vector2(242, 185)
 
 [node name="Test" type="Node2D"]
+position = Vector2(-254, -31)
 
 [node name="DebugUI" parent="." instance=ExtResource("7_eicfu")]
 
@@ -29,7 +34,7 @@ size = Vector2(242, 185)
 [node name="Player Wrapper" parent="." instance=ExtResource("1_8wqq4")]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(138, 438)
+position = Vector2(2034.97, 149.622)
 script = ExtResource("2_w3ber")
 params = ExtResource("3_12h0o")
 
@@ -42,7 +47,7 @@ script = ExtResource("7_xfxjp")
 
 [node name="Polygon2D2" type="Polygon2D" parent="ObstacleViewParent"]
 material = ExtResource("4_362lh")
-position = Vector2(880, 377)
+position = Vector2(1434, 990)
 rotation = 2.87172
 scale = Vector2(5.38, 5.38)
 texture = ExtResource("5_xqx01")
@@ -53,14 +58,14 @@ params = ExtResource("3_12h0o")
 
 [node name="Sprite2D" parent="ObstacleViewParent" instance=ExtResource("11_d0d8x")]
 material = ExtResource("12_r7ur5")
-position = Vector2(386, -316)
+position = Vector2(947, -609)
 
 [node name="Area2D" parent="ObstacleViewParent/Sprite2D" index="0"]
 params = ExtResource("13_kktwm")
 
 [node name="Polygon2D" type="Polygon2D" parent="ObstacleViewParent"]
 material = ExtResource("12_r7ur5")
-position = Vector2(-465, -15)
+position = Vector2(1842.97, -402.378)
 rotation = -0.0128383
 texture = ExtResource("5_xqx01")
 texture_scale = Vector2(0.153, 0.153)
@@ -68,8 +73,19 @@ polygon = PackedVector2Array(98.8749, 88.2766, 80.457, -112.976, -183.802, -172.
 script = ExtResource("4_6tepr")
 params = ExtResource("13_kktwm")
 
-[node name="Area2D2" parent="." instance=ExtResource("14_jau2r")]
-position = Vector2(1042, -209)
-scale = Vector2(8.74323, 8.74323)
+[node name="Invincibility" parent="." instance=ExtResource("14_h3vqi")]
+position = Vector2(1709, 424)
+
+[node name="Area2D2" parent="." instance=ExtResource("15_c724m")]
+position = Vector2(1262, -863)
+
+[node name="Area2D3" parent="." instance=ExtResource("16_kqnh8")]
+position = Vector2(681, -979)
+
+[node name="Area2D4" parent="." instance=ExtResource("17_30dgc")]
+position = Vector2(120, -579)
+script = ExtResource("18_mrw06")
+
+[connection signal="body_entered" from="Area2D4" to="Area2D4" method="_on_body_entered"]
 
 [editable path="ObstacleViewParent/Sprite2D"]
