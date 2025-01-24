@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg4kbv76i22tw"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="1_hw3fc"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/Polygon2DObstacleAdder.gd" id="2_2emvh"]
+[ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="3_bdxvk"]
+[ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="3_ytgx7"]
+[ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="4_jwh7s"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/StructureBounds.gd" id="4_u3haa"]
+[ext_resource type="Material" uid="uid://dmgeey2ojav75" path="res://Materials/WallPlaceholder.tres" id="4_wkdxm"]
+
+[node name="StructureExample" type="Node2D"]
+
+[node name="Floor" type="Node2D" parent="."]
+z_index = -1000
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor"]
+color = Color(0.856542, 0.408027, 0.21024, 1)
+polygon = PackedVector2Array(-283, 207, 247, 209, 227, -255, -271, -241)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Floor"]
+material = ExtResource("4_wkdxm")
+position = Vector2(-251, 190)
+polygon = PackedVector2Array(-71, 15, 546, 21, 522, 239, -39, 201)
+
+[node name="InnerWalls" type="Node2D" parent="."]
+z_index = -1000
+script = ExtResource("1_hw3fc")
+
+[node name="Polygon2D" type="Polygon2D" parent="InnerWalls"]
+material = ExtResource("3_bdxvk")
+texture = ExtResource("4_jwh7s")
+texture_scale = Vector2(0.242, 0.242)
+polygon = PackedVector2Array(-277, -231, 251, -267, 237, -58, -263, -40)
+script = ExtResource("2_2emvh")
+params = ExtResource("3_ytgx7")
+
+[node name="Polygon2D2" type="Polygon2D" parent="InnerWalls"]
+material = ExtResource("3_bdxvk")
+texture = ExtResource("4_jwh7s")
+texture_scale = Vector2(0.242, 0.242)
+polygon = PackedVector2Array(-279, 13, -45, 21, -39, 231, -295, 233)
+script = ExtResource("2_2emvh")
+params = ExtResource("3_ytgx7")
+
+[node name="Walls" type="Node2D" parent="."]
+z_index = 1000
+script = ExtResource("1_hw3fc")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls"]
+material = ExtResource("4_wkdxm")
+position = Vector2(-251, 190)
+polygon = PackedVector2Array(3, -5, 506, -9, 512, 55, -14, 60)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Walls"]
+material = ExtResource("4_wkdxm")
+position = Vector2(-238, -267)
+rotation = 1.61105
+polygon = PackedVector2Array(3, -5, 506, -9, 512, 55, -14, 60)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Walls"]
+material = ExtResource("4_wkdxm")
+position = Vector2(-238, -267)
+rotation = -0.0473446
+polygon = PackedVector2Array(3, -5, 506, -9, 512, 55, 166.669, 58.2826, -14, 60)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Walls"]
+material = ExtResource("4_wkdxm")
+position = Vector2(258, -274)
+rotation = 1.54982
+polygon = PackedVector2Array(3, -5, 506, -9, 512, 55, -14, 60)
+
+[node name="StructureBounds" type="Area2D" parent="."]
+script = ExtResource("4_u3haa")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StructureBounds"]
+polygon = PackedVector2Array(-306, 241, 269, 245, 255, -264, -288, -240)
+
+[node name="Ceiling" type="Node2D" parent="StructureBounds"]
+z_index = 1000
+
+[node name="Polygon2D" type="Polygon2D" parent="StructureBounds/Ceiling"]
+position = Vector2(-36, -22)
+polygon = PackedVector2Array(-369, 297, 434, 290, 398, -381, -405, -332)
