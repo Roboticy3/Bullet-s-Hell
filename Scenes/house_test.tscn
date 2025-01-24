@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bf3hbaquqrpi7"]
+[gd_scene load_steps=14 format=3 uid="uid://bf3hbaquqrpi7"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_pd7ld"]
 [ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="2_tbbep"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://yyugv3phoyjy" path="res://Images/house.png" id="9_vta6r"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Obstacle.gd" id="10_g1b5h"]
 [ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="11_sq2v0"]
+[ext_resource type="PackedScene" uid="uid://ch4ytxcyhsleu" path="res://Scenes/Obstacle/wind.tscn" id="12_g6gy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b3jb"]
 size = Vector2(149, 123)
@@ -52,3 +53,41 @@ params = ExtResource("11_sq2v0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleViewParent/Sprite2D/Area2D"]
 position = Vector2(0.5, -15.5)
 shape = SubResource("RectangleShape2D_0b3jb")
+
+[node name="Wind" parent="." instance=ExtResource("12_g6gy3")]
+
+[node name="Wind2" parent="." instance=ExtResource("12_g6gy3")]
+position = Vector2(669, -398)
+rotation = 1.16723
+
+[node name="Wind3" parent="." instance=ExtResource("12_g6gy3")]
+position = Vector2(949, -95)
+rotation = -1.58001
+
+[node name="Wind4" parent="." instance=ExtResource("12_g6gy3")]
+position = Vector2(1123, -458)
+rotation = 1.07961
+
+[node name="Wind5" parent="." instance=ExtResource("12_g6gy3")]
+position = Vector2(1322, -175)
+rotation = -1.88149
+
+[node name="Wind6" parent="." instance=ExtResource("12_g6gy3")]
+position = Vector2(1369, -435)
+rotation = 0.778134
+
+[node name="Wind7" parent="." instance=ExtResource("12_g6gy3")]
+position = Vector2(371, -248)
+rotation = -1.61176
+
+[node name="Wind8" parent="." instance=ExtResource("12_g6gy3")]
+position = Vector2(328, -459)
+rotation = -1.86764
+
+[node name="Wind9" parent="." instance=ExtResource("12_g6gy3")]
+position = Vector2(232, -638)
+rotation = -2.3988
+
+[node name="Wind10" parent="." instance=ExtResource("12_g6gy3")]
+position = Vector2(51, -761)
+rotation = -2.65468
