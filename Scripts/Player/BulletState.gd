@@ -4,18 +4,14 @@ class_name BulletState
 #state wrapper for the player
 
 ###INPUT HANDLING
-#update_movement_axis takes an input axis from whatever manages the Inputs and
-#applies it to the state, updating a record of the movement axis and velocity
+#turn_movement_axis rotates movement_axis by a specified angle, which is used
+#to compute the movement direction of the player
 
-var movement_axis := Vector2.ZERO
+var movement_axis := Vector2.RIGHT
 
 #last_movement_axis is good for quickly detecting changes in direction before
 #they are necessarily applied to the player
-var last_movement_axis := Vector2.ZERO
-
-func update_movement_axis(to:Vector2):
-	last_movement_axis = movement_axis
-	movement_axis = to
+var last_movement_axis := Vector2.RIGHT
 
 func turn_movement_axis(amount:float):
 	last_movement_axis = movement_axis

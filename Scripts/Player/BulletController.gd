@@ -3,7 +3,6 @@ extends Node
 class_name BulletController
 
 enum CONTROL_MODE {
-	STICK,
 	STEER,
 	STEER_VERTICAL,
 	MOUSE
@@ -35,10 +34,6 @@ func _process(delta):
 func update_control_mode(new_control_mode:CONTROL_MODE):
 	control_mode = new_control_mode
 	if player is Bullet: match control_mode:
-		CONTROL_MODE.STICK:
-			player.camera.ignore_rotation = true
-			player.camera.rotation = .0
-			control_function = control_stick
 		CONTROL_MODE.STEER:
 			player.camera.ignore_rotation = false
 			player.camera.rotation = .0
@@ -51,12 +46,6 @@ func update_control_mode(new_control_mode:CONTROL_MODE):
 			player.camera.ignore_rotation = true
 			player.camera.rotation = .0
 			control_function = control_mouse
-
-func control_stick(delta:float):
-	player.state.update_movement_axis(Vector2(
-		Input.get_axis("stick_left", "stick_right"),
-		Input.get_axis("stick_up", "stick_down")
-	))
 
 func control_steer(delta:float):
 	player.state.turn_movement_axis(

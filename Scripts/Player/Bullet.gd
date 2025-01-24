@@ -24,8 +24,6 @@ var state := BulletState.new()
 func _ready():
 	Accessor.player = self
 	state.speed = INITIAL_SPEED
-	
-	state.update_movement_axis(Vector2.RIGHT)
 
 func _physics_process(delta: float):
 	
