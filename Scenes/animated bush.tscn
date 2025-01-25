@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://chn2245jrg5xa"]
+
+[ext_resource type="Texture2D" uid="uid://bmj4kxsgyfi7y" path="res://Images/Bush1 rustle.png" id="1_4kbn3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oafye"]
+atlas = ExtResource("1_4kbn3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu83t"]
+atlas = ExtResource("1_4kbn3")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0n0m"]
+atlas = ExtResource("1_4kbn3")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwqcx"]
+atlas = ExtResource("1_4kbn3")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bfwe"]
+atlas = ExtResource("1_4kbn3")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsgcv"]
+atlas = ExtResource("1_4kbn3")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_youbf"]
+atlas = ExtResource("1_4kbn3")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t248e"]
+atlas = ExtResource("1_4kbn3")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vmmtr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oafye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu83t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0n0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwqcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bfwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsgcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_youbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t248e")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(225, 112)
+sprite_frames = SubResource("SpriteFrames_vmmtr")
+frame = 6
+frame_progress = 1.0

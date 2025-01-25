@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dmgeey2ojav75"]
+
+[ext_resource type="Shader" path="res://Shaders/DamageTexture.gdshader" id="1_3ot51"]
+
+[sub_resource type="Gradient" id="Gradient_xfm4j"]
+colors = PackedColorArray(0.408295, 0.139913, 1.68458e-07, 1, 0.411765, 0.145098, 0.00392157, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ya7fx"]
+gradient = SubResource("Gradient_xfm4j")
+
+[sub_resource type="Gradient" id="Gradient_1t5sh"]
+colors = PackedColorArray(0.894334, 0.575098, 0.375507, 1, 0.894118, 0.576471, 0.380392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_roklo"]
+gradient = SubResource("Gradient_1t5sh")
+
+[resource]
+shader = ExtResource("1_3ot51")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/channel = 1
+shader_parameter/influence = 1.0
+shader_parameter/texUndamaged = SubResource("GradientTexture1D_roklo")
+shader_parameter/texDamaged = SubResource("GradientTexture1D_ya7fx")
