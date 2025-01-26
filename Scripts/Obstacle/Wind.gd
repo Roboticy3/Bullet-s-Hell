@@ -14,6 +14,6 @@ func _physics_process(delta: float) -> void:
 			area.state.turn_movement_axis(angle * turn_strength * delta)
 			var alignment := axis.dot(wind_vector) - alignment_bias
 			area.state.update_speed(
-				-(alignment) * strength * delta
+				-(alignment) * strength * delta, area.INITIAL_SPEED
 			)
 	

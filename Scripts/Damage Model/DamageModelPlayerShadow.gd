@@ -23,7 +23,7 @@ func attach_hole_pusher(player:Bullet):
 
 func hole_pusher(area:Area2D, hole:PackedScene):
 	if (area is Obstacle):
-		print("pushing hole!")
+		#print("pushing hole!")
 		push_shadow_to_player_transform(hole)
 
 var last_shadow_position := Vector2.INF
