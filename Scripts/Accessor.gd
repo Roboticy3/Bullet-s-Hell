@@ -12,6 +12,13 @@ var player:Bullet:
 
 signal player_set
 
+var player_controller:BulletController:
+	set(new_player_controller): 
+		player_controller = new_player_controller
+		player_controller_set.emit()
+
+signal player_controller_set
+
 var damage_model_viewport:SubViewport:
 	set(new_damage_model_viewport):
 		damage_model_viewport = new_damage_model_viewport

@@ -1,14 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0gtgs6na52ad"]
+[gd_scene load_steps=8 format=3 uid="uid://b0gtgs6na52ad"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_k5qc0"]
 [ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="2_5n7ox"]
 [ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="3_va0wt"]
 [ext_resource type="PackedScene" uid="uid://cud6dqwggobub" path="res://Scenes/Damage Model/debug_damage_model.tscn" id="4_r0ipj"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="5_ptokp"]
-[ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="6_y86ix"]
-[ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="7_nf7jp"]
-[ext_resource type="Script" path="res://Scripts/Obstacle/Polygon2DObstacleAdder.gd" id="8_nhy6u"]
-[ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="9_s1t2y"]
+[ext_resource type="PackedScene" uid="uid://bwrdqknvf018d" path="res://Scenes/Obstacle/cindeblock_polygon.tscn" id="7_m2r2r"]
+[ext_resource type="PackedScene" uid="uid://cv56vc2trbu0n" path="res://Scenes/Obstacle/wood_polygon.tscn" id="10_qyn1q"]
 
 [node name="Test2" type="Node2D"]
 
@@ -23,11 +21,14 @@
 [node name="ObstacleViewParent" type="Node2D" parent="."]
 script = ExtResource("5_ptokp")
 
-[node name="Polygon2D" type="Polygon2D" parent="ObstacleViewParent"]
-material = ExtResource("6_y86ix")
-position = Vector2(16, 8)
-texture = ExtResource("7_nf7jp")
-texture_scale = Vector2(0.378, 0.378)
-polygon = PackedVector2Array(298, 282, 422, 64, 705, 69, 738, 293, 482, 464, 213, 495, 217, 318)
-script = ExtResource("8_nhy6u")
-params = ExtResource("9_s1t2y")
+[node name="Polygon2D3" parent="ObstacleViewParent" instance=ExtResource("10_qyn1q")]
+position = Vector2(-140, 25)
+polygon = PackedVector2Array(-73, 83, 30, 29, 55, -76, -123, -36)
+
+[node name="Polygon2D4" parent="ObstacleViewParent" instance=ExtResource("10_qyn1q")]
+position = Vector2(517, 192)
+polygon = PackedVector2Array(-103, 129, 86, 250, 264, 139, 193, -146, -3, -263, -125, -99, -242, 43)
+
+[node name="Polygon2D5" parent="ObstacleViewParent" instance=ExtResource("7_m2r2r")]
+position = Vector2(8, 217)
+polygon = PackedVector2Array(-102, 67, 10, 134, 108, 48, 30, -30, -30, -30)

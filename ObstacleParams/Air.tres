@@ -7,4 +7,4 @@ script = ExtResource("1_e5jp8")
 entry_penalty = 0.0
 exit_penalty = 0.0
 drag = 10.0
-drag_turning_factor = 1.0
+drag_turning_factor = 0.0

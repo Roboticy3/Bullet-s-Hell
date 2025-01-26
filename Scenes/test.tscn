@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="3_12h0o"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Polygon2DObstacleAdder.gd" id="4_6tepr"]
 [ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="4_362lh"]
-[ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="5_xqx01"]
+[ext_resource type="Texture2D" uid="uid://cj0nsavjkdubt" path="res://Images/Placeholder.png" id="5_xqx01"]
 [ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="7_eicfu"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="7_xfxjp"]
 [ext_resource type="PackedScene" uid="uid://dg6asqno2n740" path="res://Scenes/Obstacle/sprite_2d_obstacle.tscn" id="11_d0d8x"]

@@ -4,18 +4,14 @@ class_name BulletState
 #state wrapper for the player
 
 ###INPUT HANDLING
-#update_movement_axis takes an input axis from whatever manages the Inputs and
-#applies it to the state, updating a record of the movement axis and velocity
+#turn_movement_axis rotates movement_axis by a specified angle, which is used
+#to compute the movement direction of the player
 
-var movement_axis := Vector2.ZERO
+var movement_axis := Vector2.RIGHT
 
 #last_movement_axis is good for quickly detecting changes in direction before
 #they are necessarily applied to the player
-var last_movement_axis := Vector2.ZERO
-
-func update_movement_axis(to:Vector2):
-	last_movement_axis = movement_axis
-	movement_axis = to
+var last_movement_axis := Vector2.RIGHT
 
 func turn_movement_axis(amount:float):
 	last_movement_axis = movement_axis
@@ -51,8 +47,9 @@ func update_velocity(to:Vector2, steer:float) -> Vector2:
 	velocity += steering_vector * steer
 	return steering_vector
 
-func update_speed(delta:float):
-	speed -= drag * delta
+func update_speed(delta:float, max_speed:float):
+	var drag_speed := speed / max_speed
+	speed -= drag * drag_speed * drag_speed * delta
 	speed = max(speed, 0.0)
 #drag that's halted when under the effects of Invincibility
 var drag_lock = null
