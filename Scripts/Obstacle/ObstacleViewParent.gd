@@ -32,4 +32,4 @@ func set_damage_models():
 					"damageMask", 
 					Accessor.damage_model_viewport.get_texture()
 				)
-				#nmbhjikoliuokjprint("set damage model at ", c, " with material ", m, " and texture ", Accessor.damage_model_viewport.get_texture())
+				#print("set damage model at ", c, " with material ", m, " and texture ", Accessor.damage_model_viewport.get_texture())
