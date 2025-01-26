@@ -1,5 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://cftfdtk5i7en"]
+[gd_scene load_steps=36 format=3 uid="uid://cftfdtk5i7en"]
 
+[ext_resource type="Script" path="res://Scripts/Power Up/Teleport.gd" id="1_5v7yi"]
 [ext_resource type="Texture2D" uid="uid://c8hjv0jmylnqk" path="res://Images/speed_boost_trail.png" id="2_njft3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4t64"]
@@ -236,6 +237,7 @@ animations = [{
 
 [node name="Teleport" type="Node2D"]
 scale = Vector2(1.51988, 1.51988)
+script = ExtResource("1_5v7yi")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(-79.6114, 4.88853e-12)

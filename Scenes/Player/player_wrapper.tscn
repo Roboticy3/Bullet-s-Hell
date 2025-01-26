@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player/Bullet.gd" id="1_2amhp"]
 [ext_resource type="Resource" uid="uid://b8s27on8oxdni" path="res://ObstacleParams/Air.tres" id="2_7df06"]
-[ext_resource type="Texture2D" uid="uid://blsua84mlf7jp" path="res://Images/angry-bullet-1189835545.jpg" id="2_a4qfx"]
+[ext_resource type="Texture2D" uid="uid://c6sr8uhhq6jrf" path="res://Images/angry-bullet-1189835545.jpg" id="2_a4qfx"]
 [ext_resource type="Script" path="res://Scripts/Player/BulletController.gd" id="4_72hmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16vnq"]

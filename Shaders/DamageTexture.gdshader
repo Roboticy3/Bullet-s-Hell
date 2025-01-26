@@ -24,7 +24,7 @@ uniform float influence: hint_range(0.f, 1.f) = 1.f;
 void fragment() {
 	vec2 transformed_uv = UV * scale + offset;
 	transformed_uv = mod(transformed_uv, vec2(1.f));
-	
+
 	float maskValue = texture(damageMask, SCREEN_UV)[channel];
 
 	//define weights for how prevalend the undamaged and damaged textures should be

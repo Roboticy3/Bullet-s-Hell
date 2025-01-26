@@ -32,6 +32,7 @@ signal power_up_added
 func add_power_up(to:Bullet):
 	var instance := power_up.instantiate()
 	to.add_child(instance)
+	print("added power up ", instance)
 	
 	if one_shot:
 		set_deferred("monitoring", false)

@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/MatchWindow.gd" id="1_28kai"]
 [ext_resource type="Script" path="res://Scripts/Damage Model/DamageModelCanvas.gd" id="1_lxqyi"]
-[ext_resource type="Texture2D" uid="uid://cj0nsavjkdubt" path="res://Images/Placeholder.png" id="3_dedfi"]
+[ext_resource type="Texture2D" uid="uid://c5umwmmydl3s5" path="res://Images/Placeholder.png" id="3_dedfi"]
 [ext_resource type="Script" path="res://Scripts/Damage Model/DamageModelPlayerShadow.gd" id="4_l1edo"]
 [ext_resource type="PackedScene" uid="uid://c4m7lu8i8pdkp" path="res://Scenes/Damage Model/damage_model_trail.tscn" id="5_vysj5"]
-[ext_resource type="PackedScene" uid="uid://dpnpuk6jt4bmv" path="res://Scenes/Damage Model/damage_model_hole.tscn" id="6_k8wox"]
+[ext_resource type="PackedScene" path="res://Scenes/Damage Model/damage_model_hole.tscn" id="6_k8wox"]
 [ext_resource type="Script" path="res://Scripts/MatchCamera.gd" id="6_ylhho"]
-[ext_resource type="PackedScene" uid="uid://bki6gxiopris5" path="res://Scenes/Damage Model/damage_model_hole_behind.tscn" id="7_ywp2k"]
+[ext_resource type="PackedScene" path="res://Scenes/Damage Model/damage_model_hole_behind.tscn" id="7_ywp2k"]
 
 [node name="DamageModelCanvas" type="CanvasLayer"]
 script = ExtResource("1_lxqyi")

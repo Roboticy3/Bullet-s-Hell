@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmqol3866ftwi"]
+[gd_scene load_steps=19 format=3 uid="uid://dmqol3866ftwi"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8wqq4"]
 [ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="2_sljrt"]
@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="3_12h0o"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Polygon2DObstacleAdder.gd" id="4_6tepr"]
 [ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="4_362lh"]
-[ext_resource type="Texture2D" uid="uid://cj0nsavjkdubt" path="res://Images/Placeholder.png" id="5_xqx01"]
+[ext_resource type="Texture2D" uid="uid://c5umwmmydl3s5" path="res://Images/Placeholder.png" id="5_xqx01"]
 [ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="7_eicfu"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="7_xfxjp"]
 [ext_resource type="PackedScene" uid="uid://dg6asqno2n740" path="res://Scenes/Obstacle/sprite_2d_obstacle.tscn" id="11_d0d8x"]
@@ -17,13 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://dpw5xqm4w2qk6" path="res://Scenes/Power Up Trigger/speed_boost_trigger.tscn" id="15_c724m"]
 [ext_resource type="PackedScene" uid="uid://dhw67fvfh8j3r" path="res://Scenes/Power Up Trigger/Invincibility_Trigger.tscn" id="16_kqnh8"]
 [ext_resource type="PackedScene" uid="uid://dbe8ws3ejr2gd" path="res://Scenes/Power Up Trigger/Teleport_Trigger.tscn" id="17_30dgc"]
-[ext_resource type="Script" path="res://Scenes/Power Up Trigger/teleport_trigger.gd" id="18_mrw06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yknox"]
 size = Vector2(242, 185)
 
 [node name="Test" type="Node2D"]
-position = Vector2(-254, -31)
 
 [node name="DebugUI" parent="." instance=ExtResource("7_eicfu")]
 
@@ -78,14 +76,14 @@ position = Vector2(1709, 424)
 
 [node name="Area2D2" parent="." instance=ExtResource("15_c724m")]
 position = Vector2(1262, -863)
+scale = Vector2(6.97, 6.97)
 
 [node name="Area2D3" parent="." instance=ExtResource("16_kqnh8")]
 position = Vector2(681, -979)
+scale = Vector2(6.97, 6.97)
 
 [node name="Area2D4" parent="." instance=ExtResource("17_30dgc")]
-position = Vector2(120, -579)
-script = ExtResource("18_mrw06")
-
-[connection signal="body_entered" from="Area2D4" to="Area2D4" method="_on_body_entered"]
+position = Vector2(114, -610)
+scale = Vector2(12.8589, 6.20799)
 
 [editable path="ObstacleViewParent/Sprite2D"]
