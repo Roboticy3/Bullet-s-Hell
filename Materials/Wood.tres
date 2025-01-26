@@ -8,7 +8,7 @@
 shader = ExtResource("1_yqg2u")
 shader_parameter/scale = Vector2(2, 2)
 shader_parameter/offset = Vector2(0, 0)
-shader_parameter/channel = 3
+shader_parameter/channel = 0
 shader_parameter/influence = 1.0
 shader_parameter/texUndamaged = ExtResource("2_ilt75")
 shader_parameter/texDamaged = ExtResource("2_q8mbv")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8y7o8uqc3v6l"
-path="res://.godot/imported/sand_03_gc.png-e6df221135e716a6a0da602dbf8d70a2.ctex"
+uid="uid://38j025gwqlkj"
+path="res://.godot/imported/Beach_sand_and_water_GC.png-d582d0d1739056d6013065fdb06fcc39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Level ground tiles/Beach/sand_03_gc.png"
-dest_files=["res://.godot/imported/sand_03_gc.png-e6df221135e716a6a0da602dbf8d70a2.ctex"]
+source_file="res://Images/Tilesets/Beach_sand_and_water_GC.png"
+dest_files=["res://.godot/imported/Beach_sand_and_water_GC.png-d582d0d1739056d6013065fdb06fcc39.ctex"]
 
 [params]
 

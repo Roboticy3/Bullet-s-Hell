@@ -1,0 +1,54 @@
+[gd_scene load_steps=13 format=3 uid="uid://bf3hbaquqrpi7"]
+
+[ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_pd7ld"]
+[ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="2_tbbep"]
+[ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="3_g3dub"]
+[ext_resource type="PackedScene" uid="uid://cud6dqwggobub" path="res://Scenes/Damage Model/debug_damage_model.tscn" id="4_8k5hi"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="5_2vvsb"]
+[ext_resource type="PackedScene" uid="uid://cv56vc2trbu0n" path="res://Scenes/Obstacle/wood_polygon.tscn" id="6_md077"]
+[ext_resource type="PackedScene" uid="uid://bwrdqknvf018d" path="res://Scenes/Obstacle/cindeblock_polygon.tscn" id="7_8qfmt"]
+[ext_resource type="Material" uid="uid://ccyunedae1j5c" path="res://Materials/House.tres" id="8_1se05"]
+[ext_resource type="Texture2D" uid="uid://yyugv3phoyjy" path="res://Images/house.png" id="9_vta6r"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/Obstacle.gd" id="10_g1b5h"]
+[ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="11_sq2v0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b3jb"]
+size = Vector2(149, 123)
+
+[node name="Test2" type="Node2D"]
+
+[node name="Player Wrapper" parent="." instance=ExtResource("1_pd7ld")]
+
+[node name="DebugUI" parent="." instance=ExtResource("2_tbbep")]
+
+[node name="DamageModelCanvas" parent="." instance=ExtResource("3_g3dub")]
+
+[node name="DebugDamageModel" parent="." instance=ExtResource("4_8k5hi")]
+
+[node name="ObstacleViewParent" type="Node2D" parent="."]
+script = ExtResource("5_2vvsb")
+
+[node name="Polygon2D3" parent="ObstacleViewParent" instance=ExtResource("6_md077")]
+position = Vector2(-140, 25)
+polygon = PackedVector2Array(-73, 83, 30, 29, 55, -76, -123, -36)
+
+[node name="Polygon2D4" parent="ObstacleViewParent" instance=ExtResource("6_md077")]
+position = Vector2(517, 192)
+polygon = PackedVector2Array(-103, 129, 86, 250, 264, 139, 193, -146, -3, -263, -125, -99, -242, 43)
+
+[node name="Polygon2D5" parent="ObstacleViewParent" instance=ExtResource("7_8qfmt")]
+position = Vector2(8, 217)
+polygon = PackedVector2Array(-102, 67, 10, 134, 108, 48, 30, -30, -30, -30)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleViewParent"]
+material = ExtResource("8_1se05")
+position = Vector2(301, -29)
+texture = ExtResource("9_vta6r")
+
+[node name="Area2D" type="Area2D" parent="ObstacleViewParent/Sprite2D"]
+script = ExtResource("10_g1b5h")
+params = ExtResource("11_sq2v0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleViewParent/Sprite2D/Area2D"]
+position = Vector2(0.5, -15.5)
+shape = SubResource("RectangleShape2D_0b3jb")

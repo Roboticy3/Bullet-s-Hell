@@ -13,8 +13,8 @@ uniform vec2 offset = vec2(0.0f);
 uniform sampler2D texUndamaged;
 uniform sampler2D texDamaged;
 uniform sampler2D damageMask;
-//the color channel to sample from the damage mask, default 3 (alpha)
-uniform int channel: hint_range(0, 3, 1) = 3;
+//the color channel to sample from the damage mask, default 0 (red)
+uniform int channel: hint_range(0, 3, 1) = 0;
 
 //blends the amount by which the damage mask can reveal texDamaged
 //at 0, texUndamaged appears everywhere regardless of the mask, and at 1,
