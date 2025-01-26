@@ -15,4 +15,5 @@ func update_player():
 func _process(delta):
 	if (camera is Camera2D):
 		self.global_transform = camera.global_transform
+		self.ignore_rotation = camera.ignore_rotation
 		

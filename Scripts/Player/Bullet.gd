@@ -19,21 +19,16 @@ var STEERING_FACTOR := 5.0
 var state := BulletState.new()
 
 @export_node_path("Camera2D") var camera_path := NodePath("Camera2D")
-@onready var camera = get_node_or_null(camera_path)
+@onready var camera:Camera2D = get_node_or_null(camera_path)
 
 func _ready():
 	Accessor.player = self
 	state.speed = INITIAL_SPEED
-	
-	state.update_movement_axis(Vector2.RIGHT)
-
-func _process(delta):
-	state.turn_movement_axis(Input.get_axis("ui_left", "ui_right") * 5.0 * delta)
 
 func _physics_process(delta: float):
 	
 	state.update_drag(open_air_properties, get_overlapping_areas())
-	state.update_speed(delta)
+	state.update_speed(delta, INITIAL_SPEED)
 	state.update_velocity(
 		state.movement_axis, 
 		STEERING_FACTOR * delta

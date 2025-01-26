@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dg6asqno2n740"]
 
 [ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="1_dup77"]
-[ext_resource type="Texture2D" uid="uid://nxpnt5dwjjdt" path="res://Images/Placeholder.png" id="2_oqxk5"]
+[ext_resource type="Texture2D" uid="uid://cj0nsavjkdubt" path="res://Images/Placeholder.png" id="2_oqxk5"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Obstacle.gd" id="3_jwpi0"]
 [ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="4_2k1ke"]
 

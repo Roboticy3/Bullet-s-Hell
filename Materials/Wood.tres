@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dmbdjnvoy03ji"]
 
 [ext_resource type="Shader" path="res://Shaders/DamageTexture.gdshader" id="1_yqg2u"]
-[ext_resource type="Texture2D" uid="uid://c8jjp166t7rf2" path="res://Images/Wood.png" id="2_ilt75"]
-[ext_resource type="Texture2D" uid="uid://clod3logw4nq8" path="res://Images/WoodDamaged.png" id="2_q8mbv"]
+[ext_resource type="Texture2D" uid="uid://dlly7r43y7em2" path="res://Images/Wood.png" id="2_ilt75"]
+[ext_resource type="Texture2D" uid="uid://ul4vwoliqv03" path="res://Images/WoodDamaged.png" id="2_q8mbv"]
 
 [resource]
 shader = ExtResource("1_yqg2u")
