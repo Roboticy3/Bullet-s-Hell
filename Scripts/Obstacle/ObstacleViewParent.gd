@@ -7,6 +7,8 @@ extends Node
 #"Shaders/DamageTexture.gdshader"), an obstacle can show the path taken by the
 #player as damage
 
+@export var damage_model_property_name := "damageMask"
+
 func _ready():
 	#since the accessor stores the damage model, all we have to do is watch for
 	#updates.
@@ -29,7 +31,7 @@ func set_damage_models():
 				Accessor.damage_model_viewport is SubViewport): 
 				#then, apply changes to the child
 				m.set_shader_parameter(
-					"damageMask", 
+					damage_model_property_name, 
 					Accessor.damage_model_viewport.get_texture()
 				)
-				#print("set damage model at ", c, " with material ", m, " and texture ", Accessor.damage_model_viewport.get_texture())
+				print("set ", damage_model_property_name, " of ", c, "'s ", m, " to ", Accessor.damage_model_viewport.get_texture())

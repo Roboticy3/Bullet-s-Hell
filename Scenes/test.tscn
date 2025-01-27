@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmqol3866ftwi"]
+[gd_scene load_steps=20 format=3 uid="uid://dmqol3866ftwi"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8wqq4"]
+[ext_resource type="PackedScene" uid="uid://dj3dg7pw8iod" path="res://Scenes/Player/texture_has_color.tscn" id="1_dfy8l"]
 [ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="2_sljrt"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Obstacle.gd" id="2_w3ber"]
 [ext_resource type="PackedScene" uid="uid://cud6dqwggobub" path="res://Scenes/Damage Model/debug_damage_model.tscn" id="3_3eguv"]
@@ -22,6 +23,8 @@
 size = Vector2(242, 185)
 
 [node name="Test" type="Node2D"]
+
+[node name="TextureHasColor" parent="." instance=ExtResource("1_dfy8l")]
 
 [node name="DebugUI" parent="." instance=ExtResource("7_eicfu")]
 

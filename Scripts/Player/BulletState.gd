@@ -53,17 +53,24 @@ func update_speed(delta:float, max_speed:float):
 	speed = max(speed, 0.0)
 #drag that's halted when under the effects of Invincibility
 var drag_lock = null
-#the player could be under any number of areas, in this case, sum their drags together
-#this lets us do sort of "layered materials" for extra-intimidating fortresses, 
-#and stops the game from crashing if two blocks share a pixel, which is nice
-func update_drag(open_air_properties:ObstacleParams, overlapping_areas:Array[Area2D]):
+
+#See Bullet.gd for explanations of drag. Please.
+func update_drag(
+	open_air_properties:ObstacleParams, 
+	overlapping_areas:Array[Area2D],
+	texture_reader:TextureHasColor
+):
 	if drag_lock != null: return
+	
 	drag = open_air_properties.drag
 	drag_turning_factor = open_air_properties.drag_turning_factor
 	for o in overlapping_areas:
 		if o is Obstacle:
 			drag += o.params.drag
 			drag_turning_factor += o.params.drag_turning_factor
+	
+	if drag > open_air_properties.drag && !texture_reader.has_color(null):
+		drag = open_air_properties.drag
 
 ### DISPLAY
 #code copied from another project
