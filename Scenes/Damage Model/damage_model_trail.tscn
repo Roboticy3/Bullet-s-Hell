@@ -8,5 +8,6 @@ position = Vector2(-60, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("1_aix62")
-scale = Vector2(2.56778, 1.05817)
+position = Vector2(-5, 0)
+scale = Vector2(1.52778, 1.05817)
 texture = ExtResource("1_pvcb4")

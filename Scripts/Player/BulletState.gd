@@ -69,6 +69,9 @@ func update_drag(
 			drag += o.params.drag
 			drag_turning_factor += o.params.drag_turning_factor
 	
+	#Because reading the old damage path has a relatively high performance cost,
+	#only do it if we're inside an obstacle (e.g. suffering drag greater than
+	#the open air)
 	if drag > open_air_properties.drag && !texture_reader.has_color(null):
 		drag = open_air_properties.drag
 

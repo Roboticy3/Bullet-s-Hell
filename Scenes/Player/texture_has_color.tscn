@@ -1,10 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj3dg7pw8iod"]
+[gd_scene load_steps=13 format=3 uid="uid://dj3dg7pw8iod"]
 
 [ext_resource type="Script" path="res://Scripts/DamageModelHasColor.gd" id="1_fyhf3"]
 [ext_resource type="Script" path="res://Scripts/MatchWindow.gd" id="2_p82qa"]
+[ext_resource type="Shader" path="res://Shaders/Blur.gdshader" id="3_16bbd"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="3_m65hu"]
 [ext_resource type="Shader" path="res://Shaders/ColorAlphaMask.gdshader" id="3_vdp6h"]
 [ext_resource type="Texture2D" uid="uid://c5umwmmydl3s5" path="res://Images/Placeholder.png" id="5_qqsk1"]
+[ext_resource type="Texture2D" uid="uid://y4fo4yv5k5ja" path="res://Images/BulletSillhouette.png" id="5_yrh6y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s02jn"]
+shader = ExtResource("3_16bbd")
+shader_parameter/box_r = 16.0
+shader_parameter/step_count = 2.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6s5it"]
+viewport_path = NodePath("SubViewportContainer/SubViewport/SubViewportContainer/SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekqhq"]
 shader = ExtResource("3_vdp6h")
@@ -12,14 +22,21 @@ shader_parameter/target_color = Vector4(0, 0, 1, 1)
 shader_parameter/mask_found = Vector4(1, 1, 1, 1)
 shader_parameter/mask_out = Vector4(0, 0, 0, 0)
 shader_parameter/tolerance = 0.1
+shader_parameter/source = ExtResource("5_yrh6y")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_esxpm"]
-viewport_path = NodePath("SubViewportContainer/SubViewport")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xw25"]
+resource_local_to_scene = true
+shader = ExtResource("3_16bbd")
+shader_parameter/box_r = 128.0
+shader_parameter/step_count = 8.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tq04f"]
+viewport_path = NodePath("SubViewportContainer/SubViewport/SubViewportContainer/SubViewport")
 
 [node name="TextureHasColor" type="CanvasLayer"]
 script = ExtResource("1_fyhf3")
 subviewport_path = NodePath("SubViewportContainer/SubViewport")
-rect_path = NodePath("SubViewportContainer/SubViewport/Control/TextureRect")
+rect_path = NodePath("SubViewportContainer/SubViewport/TextureRect")
 on_process = false
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -32,12 +49,33 @@ grow_vertical = 2
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-canvas_item_default_texture_filter = 0
 render_target_update_mode = 4
 script = ExtResource("2_p82qa")
-resolution_scale = 0.05
+resolution_scale = 0.25
 
-[node name="Control" type="Control" parent="SubViewportContainer/SubViewport"]
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+material = SubResource("ShaderMaterial_s02jn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_6s5it")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewportContainer/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer/SubViewport/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+script = ExtResource("2_p82qa")
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/SubViewportContainer/SubViewport"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,7 +85,7 @@ grow_vertical = 2
 script = ExtResource("3_m65hu")
 damage_model_property_name = "source"
 
-[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/Control"]
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/SubViewportContainer/SubViewport/Control"]
 material = SubResource("ShaderMaterial_ekqhq")
 layout_mode = 1
 anchors_preset = 15
@@ -58,8 +96,12 @@ grow_vertical = 2
 texture = ExtResource("5_qqsk1")
 expand_mode = 1
 
-[node name="Debug Viewer" type="Sprite2D" parent="."]
+[node name="Debug Viewer" type="TextureRect" parent="."]
 visible = false
-position = Vector2(546, 289)
-scale = Vector2(4.37305, 2.26563)
-texture = SubResource("ViewportTexture_esxpm")
+material = SubResource("ShaderMaterial_7xw25")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_tq04f")

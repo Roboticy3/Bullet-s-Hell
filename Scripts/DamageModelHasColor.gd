@@ -29,8 +29,11 @@ func has_color(tex, target_color:=color, tolerance:=0.1) -> bool:
 	
 	var result_image = subviewport.get_texture().get_image()
 	
-	for y in result_image.get_height():
-		for x in result_image.get_width():
-			if result_image.get_pixel(x, y).a > 0.5:
-				return true
-	return false
+	var max := 0.0
+	for y in range(0, result_image.get_height(), 8):
+		for x in range(0, result_image.get_width(), 8):
+			var v := result_image.get_pixel(x, y).a
+			max = maxf(v, max)
+	
+	print("found max of ", max)
+	return max >= 0.5
