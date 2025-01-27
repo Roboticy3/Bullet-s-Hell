@@ -2,6 +2,10 @@ shader_type canvas_item;
 
 uniform float box_r = 128.;
 uniform float step_count = 8;
+uniform sampler2D source;
+
+uniform vec4 target_color: source_color = vec4(1.0);
+uniform float tolerance: hint_range(0.0, 1.0) = 0.1;
 
 void fragment(){
 	int step_size = int(max(1., box_r / (2. * step_count)));
@@ -14,7 +18,8 @@ void fragment(){
 	vec4 total = vec4(0., 0., 0., 0.);
 	for(int i = x_min; i < x_max; i += step_size){
 		for(int j = y_min; j < y_max; j += step_size){
-			total += texture(TEXTURE, vec2(float(i), float(j)) * TEXTURE_PIXEL_SIZE);
+			vec4 sample = texture(source, vec2(float(i), float(j)) * TEXTURE_PIXEL_SIZE);
+			total += distance(sample, target_color) <= tolerance ? target_color : vec4(0.0);
 		}
 	}
 	total /= step_count * step_count;

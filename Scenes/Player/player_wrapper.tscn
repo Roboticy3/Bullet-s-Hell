@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dj3dg7pw8iod" path="res://Scenes/Player/texture_has_color.tscn" id="4_o0pu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16vnq"]
-size = Vector2(56, 48)
+size = Vector2(24, 48)
 
 [node name="Player Wrapper" type="Node2D"]
 
@@ -14,7 +14,7 @@ size = Vector2(56, 48)
 script = ExtResource("1_2amhp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(31, 0)
+position = Vector2(27, 0)
 shape = SubResource("RectangleShape2D_16vnq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]

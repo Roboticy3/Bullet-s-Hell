@@ -1,13 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4m7lu8i8pdkp"]
+[gd_scene load_steps=2 format=3 uid="uid://c4m7lu8i8pdkp"]
 
 [ext_resource type="Material" path="res://Materials/Additive.tres" id="1_aix62"]
-[ext_resource type="Texture2D" uid="uid://blta38e81sk8b" path="res://Images/DamageTrail.png" id="1_pvcb4"]
 
 [node name="DamageModelShadow" type="Node2D"]
-position = Vector2(-60, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-86, 0)
+scale = Vector2(0.659336, 0.384032)
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D"]
 material = ExtResource("1_aix62")
-position = Vector2(-5, 0)
-scale = Vector2(1.52778, 1.05817)
-texture = ExtResource("1_pvcb4")
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(181.37, 0, 114.263, -30.8328, 32.7696, -85.2437, -29.5983, -192.252, -86.6808, -208.575, -152.351, -184.881, -169.956, -124.99, -185.035, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Node2D"]
+material = ExtResource("1_aix62")
+scale = Vector2(1, -1)
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(181.37, 0, 114.263, -30.8328, 32.7696, -85.2437, -29.5983, -192.252, -86.6808, -208.575, -152.351, -166.653, -170.201, -124.99, -185.035, 0)

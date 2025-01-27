@@ -9,8 +9,6 @@ class_name TextureHasColor
 
 @export var on_process := true
 
-@export var color := Color.BLUE
-
 var last_call := false
 
 func _ready():
@@ -19,21 +17,17 @@ func _ready():
 func _process(delta: float) -> void:
 	last_call = has_color(null)
 
-func has_color(tex, target_color:=color, tolerance:=0.1) -> bool:
+func has_color(tex) -> bool:
 	var downscaled_tex := ViewportTexture.new()
 	downscaled_tex.viewport_path = subviewport_path
 	
 	if tex is Texture2D: rect.texture = tex
-	rect.material.set_shader_parameter("target_color", target_color)
-	rect.material.set_shader_parameter("tolerance", tolerance)
 	
 	var result_image = subviewport.get_texture().get_image()
 	
-	var max := 0.0
+	var sum := 0.0
 	for y in range(0, result_image.get_height(), 8):
 		for x in range(0, result_image.get_width(), 8):
-			var v := result_image.get_pixel(x, y).a
-			max = maxf(v, max)
-	
-	print("found max of ", max)
-	return max >= 0.5
+			sum += result_image.get_pixel(x, y).a
+	if sum >= 0.5: print("found sum of ", sum)
+	return sum >= 0.5
