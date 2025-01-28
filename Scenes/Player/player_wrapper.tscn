@@ -1,20 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://cootgdi51c8hy"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Bullet.gd" id="1_2amhp"]
-[ext_resource type="Resource" uid="uid://b8s27on8oxdni" path="res://ObstacleParams/Air.tres" id="2_7df06"]
-[ext_resource type="Texture2D" uid="uid://blsua84mlf7jp" path="res://Images/angry-bullet-1189835545.jpg" id="2_a4qfx"]
+[ext_resource type="Texture2D" uid="uid://c6sr8uhhq6jrf" path="res://Images/angry-bullet-1189835545.jpg" id="2_a4qfx"]
 [ext_resource type="Script" path="res://Scripts/Player/BulletController.gd" id="4_72hmh"]
+[ext_resource type="PackedScene" uid="uid://dj3dg7pw8iod" path="res://Scenes/Player/texture_has_color.tscn" id="4_o0pu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16vnq"]
-size = Vector2(60, 60)
+size = Vector2(24, 48)
 
 [node name="Player Wrapper" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("1_2amhp")
-open_air_properties = ExtResource("2_7df06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(27, 0)
 shape = SubResource("RectangleShape2D_16vnq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
@@ -23,6 +23,8 @@ scale = Vector2(0.057, 0.057)
 texture = ExtResource("2_a4qfx")
 
 [node name="Camera2D" type="Camera2D" parent="Area2D"]
+
+[node name="TextureHasColor" parent="Area2D" instance=ExtResource("4_o0pu6")]
 
 [node name="PlayerController" type="Node2D" parent="."]
 script = ExtResource("4_72hmh")

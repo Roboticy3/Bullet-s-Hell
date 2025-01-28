@@ -1,23 +1,30 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmqol3866ftwi"]
+[gd_scene load_steps=20 format=3 uid="uid://dmqol3866ftwi"]
 
 [ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8wqq4"]
+[ext_resource type="PackedScene" uid="uid://dj3dg7pw8iod" path="res://Scenes/Player/texture_has_color.tscn" id="1_dfy8l"]
 [ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="2_sljrt"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Obstacle.gd" id="2_w3ber"]
 [ext_resource type="PackedScene" uid="uid://cud6dqwggobub" path="res://Scenes/Damage Model/debug_damage_model.tscn" id="3_3eguv"]
 [ext_resource type="Resource" uid="uid://catrt08mjx3jn" path="res://ObstacleParams/Wood.tres" id="3_12h0o"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/Polygon2DObstacleAdder.gd" id="4_6tepr"]
 [ext_resource type="Material" uid="uid://dmbdjnvoy03ji" path="res://Materials/Wood.tres" id="4_362lh"]
-[ext_resource type="Texture2D" uid="uid://cj0nsavjkdubt" path="res://Images/Placeholder.png" id="5_xqx01"]
+[ext_resource type="Texture2D" uid="uid://c5umwmmydl3s5" path="res://Images/Placeholder.png" id="5_xqx01"]
 [ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="7_eicfu"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="7_xfxjp"]
 [ext_resource type="PackedScene" uid="uid://dg6asqno2n740" path="res://Scenes/Obstacle/sprite_2d_obstacle.tscn" id="11_d0d8x"]
 [ext_resource type="Material" uid="uid://ceue6c20ktcxj" path="res://Materials/Cinderblock.tres" id="12_r7ur5"]
 [ext_resource type="Resource" uid="uid://8sd51g2hpt8v" path="res://ObstacleParams/Cinderblock.tres" id="13_kktwm"]
+[ext_resource type="PackedScene" uid="uid://cbtmbh2hvxgx5" path="res://Scenes/Power Up/Invincibility.tscn" id="14_h3vqi"]
+[ext_resource type="PackedScene" uid="uid://dpw5xqm4w2qk6" path="res://Scenes/Power Up Trigger/speed_boost_trigger.tscn" id="15_c724m"]
+[ext_resource type="PackedScene" uid="uid://dhw67fvfh8j3r" path="res://Scenes/Power Up Trigger/Invincibility_Trigger.tscn" id="16_kqnh8"]
+[ext_resource type="PackedScene" uid="uid://dbe8ws3ejr2gd" path="res://Scenes/Power Up Trigger/Teleport_Trigger.tscn" id="17_30dgc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yknox"]
 size = Vector2(242, 185)
 
 [node name="Test" type="Node2D"]
+
+[node name="TextureHasColor" parent="." instance=ExtResource("1_dfy8l")]
 
 [node name="DebugUI" parent="." instance=ExtResource("7_eicfu")]
 
@@ -28,7 +35,7 @@ size = Vector2(242, 185)
 [node name="Player Wrapper" parent="." instance=ExtResource("1_8wqq4")]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(138, 438)
+position = Vector2(2034.97, 149.622)
 script = ExtResource("2_w3ber")
 params = ExtResource("3_12h0o")
 
@@ -41,7 +48,7 @@ script = ExtResource("7_xfxjp")
 
 [node name="Polygon2D2" type="Polygon2D" parent="ObstacleViewParent"]
 material = ExtResource("4_362lh")
-position = Vector2(880, 377)
+position = Vector2(1434, 990)
 rotation = 2.87172
 scale = Vector2(5.38, 5.38)
 texture = ExtResource("5_xqx01")
@@ -52,18 +59,34 @@ params = ExtResource("3_12h0o")
 
 [node name="Sprite2D" parent="ObstacleViewParent" instance=ExtResource("11_d0d8x")]
 material = ExtResource("12_r7ur5")
+position = Vector2(947, -609)
 
 [node name="Area2D" parent="ObstacleViewParent/Sprite2D" index="0"]
 params = ExtResource("13_kktwm")
 
 [node name="Polygon2D" type="Polygon2D" parent="ObstacleViewParent"]
 material = ExtResource("12_r7ur5")
-position = Vector2(-465, -15)
+position = Vector2(1842.97, -402.378)
 rotation = -0.0128383
 texture = ExtResource("5_xqx01")
 texture_scale = Vector2(0.153, 0.153)
 polygon = PackedVector2Array(98.8749, 88.2766, 80.457, -112.976, -183.802, -172.374, -249.698, 52.7987, -110.828, 219.595, 109.833, 247.43, 194.866, 167.516, 266.813, -61.5798, 201.168, -245.438, -171.134, -302.222, -390.989, -237.039, -486.127, 6.75967, -381.024, 233.128, -302.337, 180.133, -383.803, 60.0777, -390.684, -105.024, -241.796, -251.125, -76.7326, -255.006, 130.108, -163.343, 138.128, 68.779)
 script = ExtResource("4_6tepr")
 params = ExtResource("13_kktwm")
+
+[node name="Invincibility" parent="." instance=ExtResource("14_h3vqi")]
+position = Vector2(1709, 424)
+
+[node name="Area2D2" parent="." instance=ExtResource("15_c724m")]
+position = Vector2(1262, -863)
+scale = Vector2(6.97, 6.97)
+
+[node name="Area2D3" parent="." instance=ExtResource("16_kqnh8")]
+position = Vector2(681, -979)
+scale = Vector2(6.97, 6.97)
+
+[node name="Area2D4" parent="." instance=ExtResource("17_30dgc")]
+position = Vector2(114, -610)
+scale = Vector2(12.8589, 6.20799)
 
 [editable path="ObstacleViewParent/Sprite2D"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bki6gxiopris5"]
+[gd_scene load_steps=3 format=3 uid="uid://dhdrh6m2t0aqw"]
 
-[ext_resource type="Material" uid="uid://bxeodwlndhmh8" path="res://Materials/Additive.tres" id="1_5cfwh"]
-[ext_resource type="Texture2D" uid="uid://devc671rc066k" path="res://Images/DamageHole.png" id="2_kjtma"]
+[ext_resource type="Material" path="res://Materials/Additive.tres" id="1_5cfwh"]
+[ext_resource type="Texture2D" uid="uid://6evw8uq16iec" path="res://Images/DamageHole.png" id="2_kjtma"]
 
 [node name="DamageModelShadow" type="Node2D"]
 

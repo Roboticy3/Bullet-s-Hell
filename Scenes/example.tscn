@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="3_va0wt"]
 [ext_resource type="PackedScene" uid="uid://cud6dqwggobub" path="res://Scenes/Damage Model/debug_damage_model.tscn" id="4_r0ipj"]
 [ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="5_ptokp"]
-[ext_resource type="PackedScene" uid="uid://bwrdqknvf018d" path="res://Scenes/Obstacle/cindeblock_polygon.tscn" id="7_m2r2r"]
-[ext_resource type="PackedScene" uid="uid://cv56vc2trbu0n" path="res://Scenes/Obstacle/wood_polygon.tscn" id="10_qyn1q"]
+[ext_resource type="PackedScene" path="res://Scenes/Obstacle/cindeblock_polygon.tscn" id="7_m2r2r"]
+[ext_resource type="PackedScene" path="res://Scenes/Obstacle/wood_polygon.tscn" id="10_qyn1q"]
 
 [node name="Test2" type="Node2D"]
 

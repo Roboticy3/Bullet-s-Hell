@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7yqhrojq73pg"]
+
+[ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_8y345"]
+[ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="2_emqx1"]
+[ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="3_u51c3"]
+[ext_resource type="PackedScene" uid="uid://cud6dqwggobub" path="res://Scenes/Damage Model/debug_damage_model.tscn" id="4_a50x4"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="5_t3owk"]
+[ext_resource type="PackedScene" path="res://Scenes/Obstacle/wood_polygon.tscn" id="6_i15v0"]
+[ext_resource type="PackedScene" path="res://Scenes/Obstacle/cindeblock_polygon.tscn" id="7_lqhtc"]
+
+[node name="Test2" type="Node2D"]
+
+[node name="Player Wrapper" parent="." instance=ExtResource("1_8y345")]
+
+[node name="DebugUI" parent="." instance=ExtResource("2_emqx1")]
+
+[node name="DamageModelCanvas" parent="." instance=ExtResource("3_u51c3")]
+
+[node name="DebugDamageModel" parent="." instance=ExtResource("4_a50x4")]
+
+[node name="ObstacleViewParent" type="Node2D" parent="."]
+script = ExtResource("5_t3owk")
+
+[node name="Polygon2D3" parent="ObstacleViewParent" instance=ExtResource("6_i15v0")]
+position = Vector2(-140, 25)
+polygon = PackedVector2Array(-73, 83, 30, 29, 55, -76, -123, -36)
+
+[node name="Polygon2D4" parent="ObstacleViewParent" instance=ExtResource("6_i15v0")]
+position = Vector2(517, 192)
+polygon = PackedVector2Array(-103, 129, 86, 250, 264, 139, 193, -146, -3, -263, -125, -99, -242, 43)
+
+[node name="Polygon2D5" parent="ObstacleViewParent" instance=ExtResource("7_lqhtc")]
+position = Vector2(8, 217)
+polygon = PackedVector2Array(-102, 67, 10, 134, 108, 48, 30, -30, -30, -30)
