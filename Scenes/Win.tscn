@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvdax3tihb2i3"]
+[gd_scene load_steps=3 format=3 uid="uid://dvdax3tihb2i3"]
 
 [ext_resource type="Texture2D" uid="uid://dhvq1qewsw0x" path="res://Images/sorry.png" id="1_r0jyi"]
 [ext_resource type="Texture2D" uid="uid://wdxnls7kyc7a" path="res://Images/win.png" id="2_58nqk"]
-[ext_resource type="Texture2D" uid="uid://7o7mmxx8vduy" path="res://Images/credits.png" id="3_prslu"]
 
 [node name="Win" type="Node2D"]
 
@@ -13,7 +12,3 @@ texture = ExtResource("1_r0jyi")
 [node name="Win" type="Sprite2D" parent="."]
 position = Vector2(603, 142)
 texture = ExtResource("2_58nqk")
-
-[node name="Credits" type="Sprite2D" parent="."]
-position = Vector2(582, 551)
-texture = ExtResource("3_prslu")

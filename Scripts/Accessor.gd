@@ -22,7 +22,7 @@ var points := 0:
 
 			# Add the next level
 			var next_level_resource = load("res://Scenes/Win.tscn")
-			var next_level = next_level_resource.instance()
+			var next_level = next_level_resource.instantiate()
 			get_tree().root.add_child(next_level)
 
 signal player_set
