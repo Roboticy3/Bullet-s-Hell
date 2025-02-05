@@ -39,6 +39,8 @@ func _set_polygon(new_polygon:PackedVector2Array):
 	obstacle.add_child(collision_polygon)
 	add_child(obstacle)
 	
+	obstacle.global_transform = global_transform
+	
 	#finally set the new polygon
 	polygon = new_polygon
 

@@ -1,0 +1,277 @@
+[gd_scene load_steps=13 format=3 uid="uid://caos5dhudftuc"]
+
+[ext_resource type="PackedScene" uid="uid://cootgdi51c8hy" path="res://Scenes/Player/player_wrapper.tscn" id="1_1lgme"]
+[ext_resource type="PackedScene" uid="uid://86r55t6fop5b" path="res://Scenes/Player/debug_ui.tscn" id="2_0u4ej"]
+[ext_resource type="Texture2D" uid="uid://hjoe7v4r2q61" path="res://Images/gun.png" id="2_cgkyk"]
+[ext_resource type="PackedScene" uid="uid://cxp2hodx3udo7" path="res://Scenes/Damage Model/damage_model_canvas.tscn" id="3_j5vld"]
+[ext_resource type="PackedScene" uid="uid://cud6dqwggobub" path="res://Scenes/Damage Model/debug_damage_model.tscn" id="4_8p0le"]
+[ext_resource type="Script" path="res://Scripts/Obstacle/ObstacleViewParent.gd" id="5_pc7eb"]
+[ext_resource type="PackedScene" uid="uid://b43akcfal4y7c" path="res://Scenes/Obstacle/wood_polygon.tscn" id="6_s5i8d"]
+[ext_resource type="PackedScene" uid="uid://jyha4upwb807" path="res://Scenes/Obstacle/target.tscn" id="7_2qjoy"]
+[ext_resource type="PackedScene" path="res://Scenes/Obstacle/cindeblock_polygon.tscn" id="7_k02kh"]
+[ext_resource type="PackedScene" uid="uid://dhw67fvfh8j3r" path="res://Scenes/Power Up Trigger/Invincibility_Trigger.tscn" id="9_r6o4f"]
+[ext_resource type="PackedScene" uid="uid://dbe8ws3ejr2gd" path="res://Scenes/Power Up Trigger/Teleport_Trigger.tscn" id="11_liu06"]
+[ext_resource type="PackedScene" uid="uid://dpw5xqm4w2qk6" path="res://Scenes/Power Up Trigger/speed_boost_trigger.tscn" id="12_bbswr"]
+
+[node name="Test2" type="Node2D"]
+
+[node name="Player Wrapper" parent="." instance=ExtResource("1_1lgme")]
+
+[node name="DebugUI" parent="." instance=ExtResource("2_0u4ej")]
+
+[node name="DamageModelCanvas" parent="." instance=ExtResource("3_j5vld")]
+
+[node name="DebugDamageModel" parent="." instance=ExtResource("4_8p0le")]
+
+[node name="ObstacleViewParent" type="Node2D" parent="."]
+script = ExtResource("5_pc7eb")
+
+[node name="Polygon2D3" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(1197, -28)
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D16" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(321, 3389)
+polygon = PackedVector2Array(-251, 713, 197, 777, 48, -654, -251, -825)
+
+[node name="Polygon2D4" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(1005, -530)
+rotation = -0.523599
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D5" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(982, 531)
+rotation = 3.66519
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D6" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(-1170, -5)
+rotation = 3.14159
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D7" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(-724, -939)
+rotation = 2.61799
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D8" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(-1007, -537)
+rotation = 2.0944
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D9" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(34, -1159)
+rotation = 1.5708
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D10" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(634, -905)
+rotation = 1.0472
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D12" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(-1086, 651)
+rotation = 4.18879
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D13" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(-583, 956)
+rotation = -1.5708
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D14" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(57, 1035)
+rotation = -1.0472
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D15" parent="ObstacleViewParent" instance=ExtResource("6_s5i8d")]
+position = Vector2(724, 900)
+rotation = 0.523599
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D11" parent="ObstacleViewParent" instance=ExtResource("7_k02kh")]
+position = Vector2(-220, 4938)
+invert_border = 1636.0
+polygon = PackedVector2Array(-7767, 1204, 7671, 916, 8247, -1098, -7911, -810)
+
+[node name="Polygon2D17" parent="ObstacleViewParent" instance=ExtResource("7_k02kh")]
+position = Vector2(-5437, 1004)
+rotation = 1.56232
+invert_border = 1636.0
+polygon = PackedVector2Array(-7767, 1204, 7671, 916, 8247, -1098, -7911, -810)
+
+[node name="Polygon2D18" parent="ObstacleViewParent" instance=ExtResource("7_k02kh")]
+position = Vector2(5392, 355)
+rotation = 1.56232
+invert_border = 1636.0
+polygon = PackedVector2Array(-7767, 1204, 7671, 916, 8247, -1098, -7911, -810)
+
+[node name="Polygon2D19" parent="ObstacleViewParent" instance=ExtResource("7_k02kh")]
+position = Vector2(-220, -5131)
+rotation = 3.19409
+invert_border = 1636.0
+polygon = PackedVector2Array(-7767, 1204, 7671, 916, 8247, -1098, -7911, -810)
+
+[node name="Targets" type="Node" parent="."]
+
+[node name="Target" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(517, -133)
+
+[node name="Target2" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(-461, -108)
+
+[node name="Target3" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(-350, 194)
+
+[node name="Target5" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(1796, -133)
+rotation = -0.780154
+
+[node name="Target6" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(-1928, 61.0001)
+rotation = -0.937462
+
+[node name="Target7" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(1226, 1016)
+rotation = -0.937462
+
+[node name="Target8" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(-1048, -2742)
+
+[node name="Target9" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(1098, -3069)
+rotation = -0.780154
+
+[node name="Target10" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(-2626, -2875)
+rotation = -0.937462
+
+[node name="Target11" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(528, -1920)
+rotation = -0.937462
+
+[node name="Target12" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(-2488, 2162)
+
+[node name="Target13" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(-342, 1835)
+rotation = -0.780154
+
+[node name="Target14" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(-4066, 2029)
+rotation = -0.937462
+
+[node name="Target15" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(-912, 2984)
+rotation = -0.937462
+
+[node name="Target4" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(1427, 850)
+rotation = -0.937462
+
+[node name="Target16" parent="Targets" instance=ExtResource("7_2qjoy")]
+position = Vector2(4142, 1.00006)
+rotation = -0.937462
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(-98, 16)
+texture = ExtResource("2_cgkyk")
+
+[node name="ObstacleViewParent2" type="Node2D" parent="."]
+scale = Vector2(2.32836, 2.32836)
+script = ExtResource("5_pc7eb")
+
+[node name="Polygon2D3" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(1197, -28)
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D4" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(1005, -530)
+rotation = -0.523599
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D5" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(982, 531)
+rotation = 3.66519
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D6" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(-1170, -5)
+rotation = 3.14159
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D7" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(-724, -939)
+rotation = 2.61799
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D8" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(-1007, -537)
+rotation = 2.0944
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D9" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(34, -1159)
+rotation = 1.5708
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D10" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(634, -905)
+rotation = 1.0472
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D12" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(-1086, 651)
+rotation = 4.18879
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D13" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(-583, 956)
+rotation = -1.5708
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D14" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(57, 1035)
+rotation = -1.0472
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Polygon2D15" parent="ObstacleViewParent2" instance=ExtResource("6_s5i8d")]
+position = Vector2(724, 900)
+rotation = 0.523599
+polygon = PackedVector2Array(-143, 209, 159, 196, 123, -165, -132, -123)
+
+[node name="Power Ups" type="Node" parent="."]
+
+[node name="Area2D2" parent="Power Ups" instance=ExtResource("9_r6o4f")]
+position = Vector2(-3769, 2221)
+
+[node name="Area2D3" parent="Power Ups" instance=ExtResource("9_r6o4f")]
+position = Vector2(3782, 363)
+
+[node name="Area2D4" parent="Power Ups" instance=ExtResource("11_liu06")]
+position = Vector2(-272, 3173)
+scale = Vector2(3.99038, 3.99038)
+
+[node name="Area2D5" parent="Power Ups" instance=ExtResource("12_bbswr")]
+position = Vector2(2882, -3089)
+scale = Vector2(14.4427, 11.2107)
+
+[node name="Area2D6" parent="Power Ups" instance=ExtResource("12_bbswr")]
+position = Vector2(-1537, 1178)
+scale = Vector2(14.4427, 11.2107)
+
+[node name="Area2D7" parent="Power Ups" instance=ExtResource("12_bbswr")]
+position = Vector2(-3569, -3165)
+scale = Vector2(14.4427, 11.2107)
+
+[node name="Area2D8" parent="Power Ups" instance=ExtResource("12_bbswr")]
+position = Vector2(2399, -1210)
+scale = Vector2(14.4427, 11.2107)
+
+[node name="Area2D9" parent="Power Ups" instance=ExtResource("12_bbswr")]
+position = Vector2(-2020, 3057)
+scale = Vector2(14.4427, 11.2107)
+
+[node name="Area2D10" parent="Power Ups" instance=ExtResource("12_bbswr")]
+position = Vector2(-4052, -1286)
+scale = Vector2(14.4427, 11.2107)

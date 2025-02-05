@@ -15,7 +15,7 @@ func _ready():
 	if (p is Bullet):
 		player = p
 		var direction = player.state.velocity.normalized()
-		var teleport_distance = 250
+		var teleport_distance = 2000
 		var new_position = player.position + direction * teleport_distance
 		player.position = new_position
 		queue_free()  # Remove the teleport power-up after use

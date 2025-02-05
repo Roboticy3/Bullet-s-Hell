@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/Power Up/PowerUpTrigger.gd" id="1_g3yre"]
 [ext_resource type="PackedScene" uid="uid://cftfdtk5i7en" path="res://Scenes/Power Up/Teleport.tscn" id="2_8nd1y"]
 [ext_resource type="Texture2D" uid="uid://jdq3wn6200jt" path="res://Images/speed_boost_bomb.png" id="3_ecs2t"]
-[ext_resource type="Texture2D" uid="uid://woynvvwtcipx" path="res://Images/speed_boost_trigger.png" id="4_rg15w"]
+[ext_resource type="Texture2D" uid="uid://bqexy4gecrm0x" path="res://Images/Teleport.png" id="4_nwu8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmryg"]
+size = Vector2(81, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ifr5i"]
 atlas = ExtResource("3_ecs2t")
@@ -156,6 +157,7 @@ script = ExtResource("1_g3yre")
 power_up = ExtResource("2_8nd1y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_tmryg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -166,7 +168,7 @@ frame = 19
 frame_progress = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.17086, 0.17086)
-texture = ExtResource("4_rg15w")
+scale = Vector2(0.501304, 0.501304)
+texture = ExtResource("4_nwu8e")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

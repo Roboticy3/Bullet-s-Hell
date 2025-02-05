@@ -10,6 +10,21 @@ var player:Bullet:
 		player = new_player
 		player_set.emit()
 
+var points := 0:
+	get(): return points
+	set(new_points):
+		points = new_points
+		if points >= 16:
+			# Remove the current level
+			var level = get_tree().root.get_node("Test2")
+			get_tree().root.remove_child(level)
+			level.call_deferred("free")
+
+			# Add the next level
+			var next_level_resource = load("res://Scenes/Win.tscn")
+			var next_level = next_level_resource.instance()
+			get_tree().root.add_child(next_level)
+
 signal player_set
 
 var player_controller:BulletController:

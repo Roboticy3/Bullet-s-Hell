@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://jyha4upwb807"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacle/Target.gd" id="1_fgd0p"]
+[ext_resource type="Texture2D" uid="uid://cocae621x86mx" path="res://Images/target_alive.png" id="1_othu8"]
+[ext_resource type="Texture2D" uid="uid://wb3g5dxl036u" path="res://Images/target_dead.png" id="2_rlv56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31kna"]
+size = Vector2(69, 133)
+
+[node name="Target" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_fgd0p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.5, 0.5)
+shape = SubResource("RectangleShape2D_31kna")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_othu8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_rlv56")

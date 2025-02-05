@@ -29,5 +29,5 @@ func has_color(tex) -> bool:
 	for y in range(0, result_image.get_height(), 8):
 		for x in range(0, result_image.get_width(), 8):
 			sum += result_image.get_pixel(x, y).a
-	if sum >= 0.5: print("found sum of ", sum)
+	
 	return sum >= 0.5

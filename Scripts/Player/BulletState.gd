@@ -74,6 +74,9 @@ func update_drag(
 	#the open air)
 	if drag > open_air_properties.drag && !texture_reader.has_color(null):
 		drag = open_air_properties.drag
+		drag_turning_factor = open_air_properties.drag_turning_factor
+	
+	print(texture_reader.has_color(null))
 
 ### DISPLAY
 #code copied from another project

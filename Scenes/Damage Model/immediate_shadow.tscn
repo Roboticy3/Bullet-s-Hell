@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://y4fo4yv5k5ja" path="res://Images/BulletSillhouette.png" id="2_rgiwp"]
 
 [node name="Immediate Shadow" type="Node2D"]
+position = Vector2(35, 0)
 script = ExtResource("1_5c84q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

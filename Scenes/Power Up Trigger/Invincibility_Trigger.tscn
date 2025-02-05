@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Power Up/PowerUpTrigger.gd" id="1_h0f0o"]
 [ext_resource type="PackedScene" uid="uid://cbtmbh2hvxgx5" path="res://Scenes/Power Up/Invincibility.tscn" id="2_15yeu"]
 [ext_resource type="Texture2D" uid="uid://jdq3wn6200jt" path="res://Images/speed_boost_bomb.png" id="3_6lqsp"]
-[ext_resource type="Texture2D" uid="uid://woynvvwtcipx" path="res://Images/speed_boost_trigger.png" id="4_el74l"]
+[ext_resource type="Texture2D" uid="uid://dly2uaicph3xw" path="res://Images/invincibility.png" id="4_idouc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmryg"]
 
@@ -152,6 +152,7 @@ animations = [{
 }]
 
 [node name="Area2D2" type="Area2D"]
+scale = Vector2(7.83822, 7.83822)
 script = ExtResource("1_h0f0o")
 power_up = ExtResource("2_15yeu")
 
@@ -167,7 +168,7 @@ frame_progress = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.17086, 0.17086)
-texture = ExtResource("4_el74l")
+texture = ExtResource("4_idouc")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="power_up_added" from="." to="AnimatedSprite2D" method="play"]
